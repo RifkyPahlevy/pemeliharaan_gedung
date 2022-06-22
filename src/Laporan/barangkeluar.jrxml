@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3c8a1cf9-4b10-406d-a0ed-9e42a2b0f1be">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     i_pengaduan.`tgl` AS i_pengaduan_tgl,
+     i_pengaduan.`layanan` AS i_pengaduan_layanan,
+     i_pengaduan.`kpl_area` AS i_pengaduan_kpl_area,
+     i_pengaduan.`ruang` AS i_pengaduan_ruang,
+     i_pengaduan.`telepon` AS i_pengaduan_telepon,
+     i_pengaduan.`keluhan` AS i_pengaduan_keluhan,
+     i_pengaduan.`teknisi` AS i_pengaduan_teknisi,
+     i_pengaduan.`tlp` AS i_pengaduan_tlp,
+     i_pengaduan.`tgl_p` AS i_pengaduan_tgl_p,
+     i_pengaduan.`status` AS i_pengaduan_status,
+     use_brg.`kd_lapor` AS use_brg_kd_lapor,
+     use_brg.`kode` AS use_brg_kode,
+     use_brg.`nama` AS use_brg_nama,
+     use_brg.`qty` AS use_brg_qty,
+     use_brg.`satuan` AS use_brg_satuan
+FROM
+     `use_brg` use_brg INNER JOIN `i_pengaduan` i_pengaduan ON use_brg.`kd_lapor` = i_pengaduan.`kd_lapor`]]>
+	</queryString>
+	<field name="i_pengaduan_tgl" class="java.lang.String"/>
+	<field name="i_pengaduan_layanan" class="java.lang.String"/>
+	<field name="i_pengaduan_kpl_area" class="java.lang.String"/>
+	<field name="i_pengaduan_ruang" class="java.lang.String"/>
+	<field name="i_pengaduan_telepon" class="java.lang.String"/>
+	<field name="i_pengaduan_keluhan" class="java.lang.String"/>
+	<field name="i_pengaduan_teknisi" class="java.lang.String"/>
+	<field name="i_pengaduan_tlp" class="java.lang.String"/>
+	<field name="i_pengaduan_tgl_p" class="java.lang.String"/>
+	<field name="i_pengaduan_status" class="java.lang.String"/>
+	<field name="use_brg_kd_lapor" class="java.lang.String"/>
+	<field name="use_brg_kode" class="java.lang.String"/>
+	<field name="use_brg_nama" class="java.lang.String"/>
+	<field name="use_brg_qty" class="java.lang.String"/>
+	<field name="use_brg_satuan" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="13" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="81" splitType="Stretch">
+			<staticText>
+				<reportElement x="195" y="0" width="208" height="20" uuid="29dad668-cd11-4fcd-a0e3-60a039567949"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Penggunaan Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="56" width="154" height="20" uuid="b0719322-06b4-4851-875c-de8ec153e161"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Telepon : (021) 85906142]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="36" width="526" height="20" uuid="1e091dee-dc2f-4719-9dae-68dcd052b161"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Jl. Otto Iskandardinata No.390, RT.5/RW.12, Bidara Cina, Kecamatan Jatinegara, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13330]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="28" width="31" height="20" uuid="571ef476-928f-4bcd-8a41-f293573978dd"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="28" width="74" height="20" uuid="cdad43a3-9826-4690-984e-f36f4e942ea2"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No Lapor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="28" width="74" height="20" uuid="d81d916f-41d7-4e2b-8510-5a11fb37bf37"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="28" width="74" height="20" uuid="5631cff4-6edf-4a46-bee0-484fe94fc582"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="28" width="74" height="20" uuid="1d549a02-d76f-4e6a-856e-f485cf70e16f"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Satuan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="28" width="128" height="20" uuid="f07028ee-ee37-4cd9-9ad8-665e9f976c84"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal Penggunaan]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="48" width="555" height="1" uuid="bf51792f-773f-4f02-b6ba-448bdee59bdf"/>
+			</line>
+			<line>
+				<reportElement x="0" y="16" width="555" height="1" uuid="96771a45-a88a-4c1c-91db-125a9209b9fc"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="172" y="0" width="55" height="20" uuid="de63ccba-4a28-40ad-88a4-63636294730e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{use_brg_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="0" width="74" height="20" uuid="11debb13-d8ea-4769-9dda-c0afaa8fe0c4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{use_brg_kd_lapor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="53" height="20" uuid="f74f7cab-c26d-45f3-9f64-60d2d04f7d9f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{use_brg_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="348" y="0" width="55" height="20" uuid="9d5ed0c3-d45d-4d8c-9e19-df3992033c12"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{use_brg_satuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="0" width="100" height="20" uuid="7a4ccfaf-e681-4a6f-b26c-2ad57617dc7e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{i_pengaduan_tgl_p}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="12" y="0" width="31" height="20" uuid="d50415f7-0d27-4f65-85f9-7af299c26d5a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="0" width="100" height="20" uuid="2fc4b83c-c5bf-4a76-820b-904d753debfe"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kepala Teknisi]]></text>
+			</staticText>
+			<line>
+				<reportElement x="12" y="53" width="129" height="1" uuid="8f97380d-674c-49a8-82e7-4e97e2e036dc"/>
+			</line>
+			<staticText>
+				<reportElement x="403" y="0" width="100" height="20" uuid="dda6dc50-7f17-4f7b-baf7-35aa4e8ced95"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Staff Warehouse]]></text>
+			</staticText>
+			<line>
+				<reportElement x="403" y="52" width="129" height="1" uuid="ba21afea-d2f0-4358-a0db-ccf3b68c0095"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

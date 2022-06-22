@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d01dea7f-c8a3-4074-9994-c1f9489c3b00">
+	<property name="ireport.zoom" value="1.7715610000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     kpl_teknisi.`id_kpl` AS kpl_teknisi_id_kpl,
+     kpl_teknisi.`nm_kpl` AS kpl_teknisi_nm_kpl,
+     kpl_teknisi.`j_kelamin` AS kpl_teknisi_j_kelamin,
+     kpl_teknisi.`alamat` AS kpl_teknisi_alamat,
+     kpl_teknisi.`username` AS kpl_teknisi_username,
+     kpl_teknisi.`telepon` AS kpl_teknisi_telepon
+FROM
+     `kpl_teknisi` kpl_teknisi]]>
+	</queryString>
+	<field name="kpl_teknisi_id_kpl" class="java.lang.String"/>
+	<field name="kpl_teknisi_nm_kpl" class="java.lang.String"/>
+	<field name="kpl_teknisi_j_kelamin" class="java.lang.String"/>
+	<field name="kpl_teknisi_alamat" class="java.lang.String"/>
+	<field name="kpl_teknisi_username" class="java.lang.String"/>
+	<field name="kpl_teknisi_telepon" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="185" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="118" width="555" height="20" uuid="548c0e0f-f821-414a-8104-593231bdfdfa"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telp. (021) 85906142]]></text>
+			</staticText>
+			<line>
+				<reportElement x="10" y="148" width="555" height="1" uuid="c3b5ac14-98dc-4c13-9b29-52a7debae50e"/>
+				<graphicElement>
+					<pen lineWidth="5.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<image>
+				<reportElement x="195" y="10" width="185" height="88" uuid="95004664-3f38-43da-ae3b-5dbd2ec15e1d"/>
+				<imageExpression><![CDATA["C:\\Users\\rifky\\Downloads\\Logo MTH Square (2).png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="10" y="98" width="555" height="20" uuid="9639e411-a83b-43df-8040-ba793821df1a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Jakarta Timur, 13330]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="78" width="555" height="20" uuid="c119525b-8b96-4415-b42e-66d0625b280f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Jl. Otto Iskandardinata No.390, RT.5/RW.12, Bidara Cina, Kecamatan Jatinegara]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="185bb7cf-cead-48e8-9223-2b30843b1512"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="92" height="15" forecolor="#000000" uuid="c4556a8b-cf9e-4bb1-8559-c14f8e659bac"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID Kepala]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="0" width="92" height="15" forecolor="#000000" uuid="4aadb217-d726-45c8-af19-07bbbd9cb655"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="184" y="0" width="92" height="15" forecolor="#000000" uuid="4af2217d-a671-491d-9d99-d33d96ec30a5"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Jenis Kelamin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="0" width="92" height="15" forecolor="#000000" uuid="396e64d3-6670-4e86-b602-a6a332cece42"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="368" y="0" width="92" height="15" forecolor="#000000" uuid="f7fc44c1-899d-4b54-9bf2-68959d0eeffd"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Username]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="460" y="0" width="92" height="15" forecolor="#000000" uuid="c3267588-20fc-433f-8da5-cde50c28e0a8"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Telepon]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="ab712397-a6a4-41fa-aacd-854630fe33c3"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="efbdba45-97ee-4c4d-ac23-907a9c67aa61"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{kpl_teknisi_id_kpl}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="92" y="0" width="92" height="15" uuid="2bab8203-6eec-4079-a766-9c2557ccc1b6"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{kpl_teknisi_nm_kpl}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="184" y="0" width="92" height="15" uuid="7933c568-9b1b-4f5d-928f-b493b5a6f01b"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{kpl_teknisi_j_kelamin}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="276" y="0" width="92" height="15" uuid="c8472f7e-92fb-47c1-9946-aa6d84286246"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{kpl_teknisi_alamat}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="368" y="0" width="92" height="15" uuid="7287fd94-77df-474f-9074-73df4ae3bbb5"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{kpl_teknisi_username}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="460" y="0" width="92" height="15" uuid="223fab23-3766-4b6c-a493-53175deb3c43"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{kpl_teknisi_telepon}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="116" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement style="Column header" x="441" y="4" width="114" height="20" forecolor="#736343" uuid="8009b4a6-e417-45b1-b383-4fdd0a8d18bc"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="441" y="85" width="100" height="1" uuid="6cd8d9cb-f1cb-4021-baec-66d15ab7e834"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="27" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

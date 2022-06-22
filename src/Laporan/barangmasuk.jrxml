@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="62945896-7b09-45cf-ab37-03cca4c2d8ad">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     i_brg.`kd_spr` AS i_brg_kd_spr,
+     i_brg.`tgl_brg` AS i_brg_tgl_brg,
+     i_brg.`nama` AS i_brg_nama,
+     i_brg.`jml` AS i_brg_jml,
+     i_brg.`satuan` AS i_brg_satuan,
+     i_brg.`keterangan` AS i_brg_keterangan
+FROM
+     `i_brg` i_brg]]>
+	</queryString>
+	<field name="i_brg_kd_spr" class="java.lang.String"/>
+	<field name="i_brg_tgl_brg" class="java.lang.String"/>
+	<field name="i_brg_nama" class="java.lang.String"/>
+	<field name="i_brg_jml" class="java.lang.String"/>
+	<field name="i_brg_satuan" class="java.lang.String"/>
+	<field name="i_brg_keterangan" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="16" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="99" splitType="Stretch">
+			<staticText>
+				<reportElement x="188" y="0" width="172" height="20" uuid="fddea884-d4d4-414e-8af9-4969766fc673"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Barang Masuk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="44" width="526" height="20" uuid="dc38f6b7-aa84-41c4-bfcb-643eb0fc5846"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Jl. Otto Iskandardinata No.390, RT.5/RW.12, Bidara Cina, Kecamatan Jatinegara, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13330]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="64" width="154" height="20" uuid="e11a4e8f-f7ae-4086-bac0-bb43878d4970"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Telepon : (021) 85906142]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="10" width="555" height="1" uuid="89abe752-e985-479e-a704-3712b3421567"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="11" width="34" height="20" uuid="5756ae55-0ec9-4f0a-8760-18ca24358ddb"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="10" width="92" height="20" uuid="4c9dd3c4-fc74-4a45-b547-f57bc9091043"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kode Supplier]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="11" width="79" height="20" uuid="c820e299-8bbd-4f02-8dab-8161d016b9e3"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="251" y="11" width="57" height="20" uuid="84c8cef2-999b-49e4-9b6e-812129ad490a"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="10" width="57" height="20" uuid="27fd4924-9f6c-428c-9d66-b0f1db9586fd"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Satuan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="11" width="79" height="20" uuid="2b02ca32-7c51-48d8-9e92-198e246ed5b0"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="10" width="94" height="20" uuid="1aa079ee-01a5-4661-818f-fdbd1e1eb1fa"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal Masuk]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="31" width="555" height="1" uuid="fb032396-3d6d-47ac-8445-c0725b6925bd"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="61" y="0" width="79" height="20" uuid="e7d4be5e-cf70-40c5-a6f9-480abd1641b6"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{i_brg_kd_spr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="0" width="89" height="20" uuid="639f2802-7485-42ff-840e-b864b5a73dae"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{i_brg_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="26" height="20" uuid="96145e69-ed4c-44fb-b0bb-e36829202598"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{i_brg_jml}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="308" y="0" width="52" height="20" uuid="e6a70394-3a2a-4995-bdc9-082f5fe70914"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{i_brg_satuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="0" width="54" height="20" uuid="d5560e45-57a4-4909-a1f7-4eb195ad13ff"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{i_brg_keterangan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="477" y="0" width="66" height="20" uuid="ed46a985-31b0-4e4e-8cba-7792630c60ae"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{i_brg_tgl_brg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="34" height="20" uuid="3165a719-1e8e-4d66-b6b9-c2abf1c4500f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="0" width="100" height="20" uuid="f2525a8d-6d0a-4f81-8f0c-71ed1d21214a"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Supplier]]></text>
+			</staticText>
+			<line>
+				<reportElement x="11" y="53" width="129" height="1" uuid="1031cfa5-4d1d-43d4-9758-530e35d6c6aa"/>
+			</line>
+			<staticText>
+				<reportElement x="395" y="0" width="100" height="20" uuid="2061b234-ab6f-4fd7-9d18-5ef2dc487a46"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Staff Logistik]]></text>
+			</staticText>
+			<line>
+				<reportElement x="382" y="52" width="147" height="1" uuid="f57471fc-4016-4aba-a8cb-649f9c622051"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
