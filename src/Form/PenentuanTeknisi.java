@@ -29,7 +29,7 @@ public DataGangguan dg = null;
             table = new DefaultTableModel(null, col);
         
                 try {
-         String sql  = "SELECT * FROM i_pengaduan where status like '%"+"Selesai"+"%' order by tgl asc"  ;
+        String sql  = "SELECT kd_lapor,tgl,nama_layanan,nama_kplarea,ruang,telepon,keluhan,nama_teknisi,tlp,tgl_perbaikan,status FROM pengaduan where status like '%"+"selesai"+"%' order by tgl asc"  ;
         Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
                 while (hasil.next()){
@@ -63,21 +63,7 @@ public DataGangguan dg = null;
 } 
     }
     
-     protected  void nama(){
-        
-        try {
-            String sql = "Select * FROM kasir where kpl_teknisi = '"+jLabel1.getText()+"'";
-            Statement stat = conn.createStatement();
-            ResultSet hasil = stat.executeQuery(sql);
-            
-            if (hasil.next()) {
-            
-        } 
-        }catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "data gagal dipanggil"+e);
-            }
-        
-    }
+    
      public void itemTerpilihTek(){
         
             
@@ -486,7 +472,7 @@ public DataGangguan dg = null;
 
     private void btnTmbhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTmbhActionPerformed
         // TODO add your handling code here:
-        String sql = "update i_pengaduan set kd_lapor=?,tgl=?,layanan=?,kpl_area=?,ruang=?,telepon=?,keluhan=?,teknisi=?,tlp=?,status=?,kd_teknisi=? where kd_lapor = '"+txtKd.getText()+"'";
+        String sql = "update pengaduan set kd_lapor=?,tgl=?,nama_layanan=?,nama_kplarea=?,ruang=?,telepon=?,keluhan=?,nama_teknisi=?,tlp=?,status=?,kd_teknisi=? where kd_lapor = '"+txtKd.getText()+"'";
           SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd");
            String fd = sdf.format(jtgl.getValue());
         try{
@@ -513,16 +499,16 @@ public DataGangguan dg = null;
 
         }
         
-        dispose();
-        DataGangguan dataG = new DataGangguan();
-        dataG.setVisible(true);
+        this.dispose();
+//        DataGangguan dataG = new DataGangguan();
+//        dataG.setVisible(true);
     }//GEN-LAST:event_btnTmbhActionPerformed
 
     private void btnHpsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHpsActionPerformed
         // TODO add your handling code here:
          int ok =  JOptionPane.showConfirmDialog(null,"hapus","Konfirmasi Dialog",JOptionPane.YES_NO_OPTION);
         if (ok==0){
-            String sql = "delete from i_pengaduan where kd_lapor ='"+txtKd.getText()+"'";
+            String sql = "delete from pengaduan where kd_lapor ='"+txtKd.getText()+"'";
             try{
                 PreparedStatement stat = conn.prepareStatement(sql);
                 stat.executeUpdate();
@@ -578,7 +564,7 @@ public DataGangguan dg = null;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String sql = "update i_pengaduan set kd_lapor=?,tgl=?,layanan=?,kpl_area=?,ruang=?,telepon=?,keluhan=?,teknisi=?,tlp=?,status=? where kd_lapor = '"+txtKd.getText()+"'";
+        String sql = "update pengaduan set kd_lapor=?,tgl=?,nama_layanan=?,nama_kplarea=?,ruang=?,telepon=?,keluhan=?,nama_teknisi=?,tlp=?,status=? where kd_lapor = '"+txtKd.getText()+"'";
           SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd");
            String fd = sdf.format(jtgl.getValue());
         try{
@@ -602,7 +588,7 @@ public DataGangguan dg = null;
 
         }
         
-        dispose();
+        datatable();
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

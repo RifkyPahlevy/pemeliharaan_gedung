@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5e3bff6c-7bff-4d88-a482-8241166b1657">
 	<property name="ireport.zoom" value="1.6105100000000154"/>
-	<property name="ireport.x" value="99"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<queryString>
 		<![CDATA[SELECT
-     i_pengaduan.`kd_lapor` AS i_pengaduan_kd_lapor,
-     i_pengaduan.`tgl` AS i_pengaduan_tgl,
-     i_pengaduan.`layanan` AS i_pengaduan_layanan,
-     i_pengaduan.`kpl_area` AS i_pengaduan_kpl_area,
-     i_pengaduan.`ruang` AS i_pengaduan_ruang,
-     i_pengaduan.`telepon` AS i_pengaduan_telepon,
-     i_pengaduan.`keluhan` AS i_pengaduan_keluhan,
-     i_pengaduan.`teknisi` AS i_pengaduan_teknisi,
-     i_pengaduan.`tlp` AS i_pengaduan_tlp,
-     i_pengaduan.`tgl_p` AS i_pengaduan_tgl_p,
-     i_pengaduan.`status` AS i_pengaduan_status
+     pengaduan.`kd_lapor` AS pengaduan_kd_lapor,
+     pengaduan.`tgl` AS pengaduan_tgl,
+     pengaduan.`nama_layanan` AS pengaduan_nama_layanan,
+     pengaduan.`nama_kplarea` AS pengaduan_nama_kplarea,
+     pengaduan.`ruang` AS pengaduan_ruang,
+     pengaduan.`telepon` AS pengaduan_telepon,
+     pengaduan.`keluhan` AS pengaduan_keluhan,
+     pengaduan.`nama_teknisi` AS pengaduan_nama_teknisi,
+     pengaduan.`tlp` AS pengaduan_tlp,
+     pengaduan.`tgl_perbaikan` AS pengaduan_tgl_perbaikan,
+     pengaduan.`status` AS pengaduan_status
 FROM
-     `i_pengaduan` i_pengaduan]]>
+     `pengaduan` pengaduan]]>
 	</queryString>
-	<field name="i_pengaduan_kd_lapor" class="java.lang.String"/>
-	<field name="i_pengaduan_tgl" class="java.lang.String"/>
-	<field name="i_pengaduan_layanan" class="java.lang.String"/>
-	<field name="i_pengaduan_kpl_area" class="java.lang.String"/>
-	<field name="i_pengaduan_ruang" class="java.lang.String"/>
-	<field name="i_pengaduan_telepon" class="java.lang.String"/>
-	<field name="i_pengaduan_keluhan" class="java.lang.String"/>
-	<field name="i_pengaduan_teknisi" class="java.lang.String"/>
-	<field name="i_pengaduan_tlp" class="java.lang.String"/>
-	<field name="i_pengaduan_tgl_p" class="java.lang.String"/>
-	<field name="i_pengaduan_status" class="java.lang.String"/>
+	<field name="pengaduan_kd_lapor" class="java.lang.String"/>
+	<field name="pengaduan_tgl" class="java.lang.String"/>
+	<field name="pengaduan_nama_layanan" class="java.lang.String"/>
+	<field name="pengaduan_nama_kplarea" class="java.lang.String"/>
+	<field name="pengaduan_ruang" class="java.lang.String"/>
+	<field name="pengaduan_telepon" class="java.lang.String"/>
+	<field name="pengaduan_keluhan" class="java.lang.String"/>
+	<field name="pengaduan_nama_teknisi" class="java.lang.String"/>
+	<field name="pengaduan_tlp" class="java.lang.String"/>
+	<field name="pengaduan_tgl_perbaikan" class="java.lang.String"/>
+	<field name="pengaduan_status" class="java.lang.String"/>
 	<title>
 		<band height="159" splitType="Stretch">
 			<staticText>
@@ -45,10 +45,6 @@ FROM
 					<pen lineWidth="5.0" lineStyle="Double"/>
 				</graphicElement>
 			</line>
-			<image>
-				<reportElement x="309" y="4" width="185" height="88" uuid="ffec473f-8800-4461-b5b8-b13ac72812b9"/>
-				<imageExpression><![CDATA["C:\\Users\\rifky\\Downloads\\Logo MTH Square (2).png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="0" y="98" width="802" height="20" uuid="23855060-2a23-4410-b6a0-38a5c447170f"/>
 				<textElement textAlignment="Center">
@@ -168,63 +164,55 @@ FROM
 			<rectangle>
 				<reportElement x="264" y="-1" width="100" height="21" uuid="90d0ff39-7d23-4723-ba0c-080b01674a7c"/>
 			</rectangle>
-			<textField>
-				<reportElement x="264" y="0" width="100" height="21" uuid="69b4011b-93b1-438d-adfb-f95920d4fb97"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{i_pengaduan_kpl_area}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="196" y="1" width="68" height="19" uuid="d806c73e-cd7e-4d02-affc-55921b94ba87"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{i_pengaduan_layanan}]]></textFieldExpression>
-			</textField>
 			<rectangle>
 				<reportElement x="96" y="-1" width="100" height="21" uuid="d18e6321-1da3-4bb8-930c-f32346896418"/>
 			</rectangle>
-			<textField>
-				<reportElement x="96" y="1" width="100" height="20" uuid="9c97394a-e120-42d1-9486-7011388b2ef1"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{i_pengaduan_tgl}]]></textFieldExpression>
-			</textField>
 			<rectangle>
 				<reportElement x="10" y="-1" width="86" height="21" uuid="43c99b7a-9880-422d-9237-ad19853e7447"/>
 			</rectangle>
-			<textField>
-				<reportElement x="10" y="0" width="86" height="20" uuid="3da726fa-2d91-4d59-89ec-f4a9c6bed280"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{i_pengaduan_kd_lapor}]]></textFieldExpression>
-			</textField>
 			<rectangle>
 				<reportElement x="364" y="-1" width="67" height="21" uuid="1364f265-5e28-49d7-a5ec-3c133820e56d"/>
 			</rectangle>
-			<textField>
-				<reportElement x="364" y="1" width="67" height="20" uuid="89f6cb27-ccd0-4d90-93c0-fcc0c8278209"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{i_pengaduan_ruang}]]></textFieldExpression>
-			</textField>
 			<rectangle>
 				<reportElement x="431" y="-1" width="100" height="21" uuid="302facd2-ffb0-4c26-ad9b-25813aa93b3c"/>
 			</rectangle>
-			<textField>
-				<reportElement x="431" y="1" width="100" height="20" uuid="693b5c57-d8ee-4b74-9c30-a8b8e7b70ad2"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{i_pengaduan_teknisi}]]></textFieldExpression>
-			</textField>
 			<rectangle>
 				<reportElement x="531" y="-1" width="144" height="21" uuid="53977de7-a020-4c29-bb5b-eb3353fa169d"/>
 			</rectangle>
-			<textField>
-				<reportElement x="531" y="0" width="144" height="20" uuid="5acb361b-366e-4c20-b79a-be0ae319db28"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{i_pengaduan_tgl_p}]]></textFieldExpression>
-			</textField>
 			<rectangle>
 				<reportElement x="675" y="-1" width="110" height="21" uuid="29e00b53-e0ca-461f-b28b-aa7cdebd6f99"/>
 			</rectangle>
 			<textField>
-				<reportElement x="675" y="1" width="110" height="20" uuid="e7eb08ea-c6de-494f-9a83-561e736a1915"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{i_pengaduan_status}]]></textFieldExpression>
+				<reportElement x="45" y="1" width="100" height="20" uuid="93c15bfb-2632-498d-a09f-e0571fadf126"/>
+				<textFieldExpression><![CDATA[$F{pengaduan_kd_lapor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="96" y="1" width="100" height="20" uuid="c158da20-4fd3-40bb-8d98-00e0c9809153"/>
+				<textFieldExpression><![CDATA[$F{pengaduan_tgl}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="196" y="1" width="68" height="20" uuid="a1e25ef9-03e5-4c02-87b0-adb6b790617d"/>
+				<textFieldExpression><![CDATA[$F{pengaduan_nama_layanan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="1" width="100" height="20" uuid="434a7ce1-8f75-4474-89ca-23a1e743e813"/>
+				<textFieldExpression><![CDATA[$F{pengaduan_nama_kplarea}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="0" width="67" height="20" uuid="a650b2d7-ff04-412b-8fc9-04fdcf79b9e9"/>
+				<textFieldExpression><![CDATA[$F{pengaduan_ruang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="1" width="100" height="20" uuid="9e212834-cbcf-4346-ac49-98d35bf99f83"/>
+				<textFieldExpression><![CDATA[$F{pengaduan_nama_teknisi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="531" y="1" width="100" height="20" uuid="b4adb24c-f40c-4ad6-8d6e-f734785c69c4"/>
+				<textFieldExpression><![CDATA[$F{pengaduan_tgl_perbaikan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="683" y="1" width="100" height="20" uuid="abb66446-25bc-4ee3-95fd-2845bc96ef14"/>
+				<textFieldExpression><![CDATA[$F{pengaduan_status}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

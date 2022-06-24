@@ -15,7 +15,8 @@ public class KepalaTeknisi extends javax.swing.JFrame {
 private DefaultTableModel table;
   private Connection conn = new Koneksi().connect();
   public static String kode;  
-  
+
+  DefaultTableModel tabel2 = new DefaultTableModel();
   public KepalaTeknisi(String kodeKepala) {
         initComponents();
         this.kode = kodeKepala;
@@ -41,7 +42,7 @@ protected void aktif(){
     public void isiField(){
        
         try {
-           String sql  = "SELECT * FROM kpl_teknisi where id_kpl like '%"+kode+"%' order by id_kpl asc";
+           String sql  = "SELECT * FROM kpl_teknisi where kd_kplteknisi like '%"+kode+"%' order by kd_kplteknisi asc";
         Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
             if (hasil.next()) {
@@ -65,14 +66,43 @@ protected void aktif(){
         }
         
     }
+    private void daftarKplTeknisi(){
+       tabel2.getDataVector().removeAllElements();
+        tabel2.fireTableDataChanged();
+       Object[] col ={"Kode","Nama Kepala","Jenis Kelamin","Alamat","Username","Telepon"};
+            table = new DefaultTableModel(null, col);
+        
+                try {
+         String sql  = "SELECT kd_kplteknisi,nama_kplTeknisi,j_kelamin,alamat,username,telepon FROM kpl_teknisi order by kd_kplteknisi asc";
+              Statement stat = conn.createStatement();
+                ResultSet hasil = stat.executeQuery(sql);
+         while (hasil.next()){
+          table.addRow(new Object[]{
+            hasil.getString(1),
+            hasil.getString(2),
+            hasil.getString(3),
+            hasil.getString(4),
+            hasil.getString(5),
+            hasil.getString(6)
+            
+            
+    }
+        );
+           }
+tableDialogSupplier.setModel(table);
+        } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "data gagal dipanggil"+e);
+        e.printStackTrace();
+    } 
+    }
 protected void autonumber(){
         try {
-            String sql = "Select * from kpl_teknisi order by id_kpl asc";
+            String sql = "Select * from kpl_teknisi order by kd_kplteknisi asc";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             txtId.setText("KP0001");
             while(rs.next()){
-                String kd_area = rs.getString("id_kpl").substring(2);
+                String kd_area = rs.getString("kd_kplteknisi").substring(2);
                 int an = Integer.parseInt(kd_area) + 1;
                 String nol = "";
                 
@@ -113,6 +143,10 @@ protected void autonumber(){
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        dialogAdmin = new javax.swing.JDialog();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tableDialogSupplier = new javax.swing.JTable();
+        btnDialogKembaliObat = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -137,8 +171,59 @@ protected void autonumber(){
         btnEdit = new javax.swing.JButton();
         btnBtl = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+
+        dialogAdmin.setSize(new java.awt.Dimension(450, 300));
+
+        tableDialogSupplier.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tableDialogSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableDialogSupplierMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tableDialogSupplier);
+
+        btnDialogKembaliObat.setText("Kembali");
+        btnDialogKembaliObat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDialogKembaliObatActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout dialogAdminLayout = new javax.swing.GroupLayout(dialogAdmin.getContentPane());
+        dialogAdmin.getContentPane().setLayout(dialogAdminLayout);
+        dialogAdminLayout.setHorizontalGroup(
+            dialogAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogAdminLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialogAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                    .addGroup(dialogAdminLayout.createSequentialGroup()
+                        .addComponent(btnDialogKembaliObat, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        dialogAdminLayout.setVerticalGroup(
+            dialogAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogAdminLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDialogKembaliObat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -274,7 +359,7 @@ protected void autonumber(){
         btnEdit.setBackground(new java.awt.Color(255, 255, 255));
         btnEdit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/edit.png"))); // NOI18N
-        btnEdit.setText("EDIT");
+        btnEdit.setText("UBAH");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
@@ -297,6 +382,13 @@ protected void autonumber(){
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("LIHAT");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -329,8 +421,11 @@ protected void autonumber(){
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)
+                        .addComponent(jButton2))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(btnTambah)
                         .addGap(18, 18, 18)
@@ -383,7 +478,9 @@ protected void autonumber(){
                     .addComponent(btnEdit)
                     .addComponent(btnHps))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap())
         );
 
@@ -440,7 +537,7 @@ protected void autonumber(){
         // TODO add your handling code here:
         int ok =  JOptionPane.showConfirmDialog(null,"hapus","Konfirmasi Dialog",JOptionPane.YES_NO_OPTION);
         if (ok==0){
-            String sql = "delete from kpl_teknisi where id_kpl ='"+txtId.getText()+"'";
+            String sql = "delete from kpl_teknisi where kd_kplteknisi ='"+txtId.getText()+"'";
             String sql1 = "delete from user where id ='"+txtId.getText()+"'";
             try{
                 PreparedStatement stat = conn.prepareStatement(sql);
@@ -468,7 +565,7 @@ protected void autonumber(){
             jenis = "Perempuan";
         }
         try{
-            String sql = "update kpl_teknisi set nm_kpl=?,j_kelamin=?,alamat=?,username = ?,password=?, telepon=? where id_kpl='"+kode+"'";
+            String sql = "update kpl_teknisi set nama_kplteknisi=?,j_kelamin=?,alamat=?,username = ?,password=?, telepon=? where id_kpl='"+kode+"'";
             PreparedStatement stat = conn.prepareStatement(sql);
 
             stat.setString(1, txtNm.getText());
@@ -573,6 +670,34 @@ protected void autonumber(){
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUserActionPerformed
 
+    private void tableDialogSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDialogSupplierMouseClicked
+        // TODO add your handling code here:
+        //        String getKd = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 0).toString();
+        //        String getNm = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 1).toString();
+        //        String getAlamat = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 2).toString();
+        //        String getNoTlp = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 3).toString();
+        //        String getEmail = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 4).toString();
+        //
+        //        txtKd.setText(getKd);
+        //        txtNama.setText(getNm);
+        //        txtAlamat.setText(getAlamat);
+        //        txtTlp.setText(getNoTlp);
+        //        txtEmail.setText(getEmail);
+
+        dialogAdmin.setVisible(false);
+    }//GEN-LAST:event_tableDialogSupplierMouseClicked
+
+    private void btnDialogKembaliObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDialogKembaliObatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDialogKembaliObatActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         dialogAdmin.setLocationRelativeTo(null);
+        daftarKplTeknisi();
+        dialogAdmin.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -611,11 +736,14 @@ protected void autonumber(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBtl;
+    private javax.swing.JButton btnDialogKembaliObat;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnHps;
     private javax.swing.JButton btnTambah;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JDialog dialogAdmin;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel3;
@@ -628,9 +756,11 @@ protected void autonumber(){
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JLabel labelKode;
     private javax.swing.JRadioButton rbLaki;
     private javax.swing.JRadioButton rbPerempuan;
+    private javax.swing.JTable tableDialogSupplier;
     private javax.swing.JTextArea txtAlamat;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNm;

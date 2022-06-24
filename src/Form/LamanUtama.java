@@ -35,9 +35,7 @@ public class LamanUtama extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        setuju = new javax.swing.JButton();
-        progress = new javax.swing.JButton();
+        terimaBrg = new javax.swing.JButton();
         keluar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,7 +89,7 @@ public class LamanUtama extends javax.swing.JFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(kodeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
                 .addComponent(namaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(210, 210, 210)
                 .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,47 +169,6 @@ public class LamanUtama extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addComponent(layanan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
-                .addComponent(brg)
-                .addGap(91, 91, 91))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(laporan)
-                .addGap(252, 252, 252))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(layanan)
-                    .addComponent(brg))
-                .addGap(96, 96, 96)
-                .addComponent(laporan)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-
-        lapPengaduan.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lapPengaduan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/to-do-list.png"))); // NOI18N
-        lapPengaduan.setText("LAPOR GANGGUAN");
-        lapPengaduan.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lapPengaduan.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        lapPengaduan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lapPengaduanActionPerformed(evt);
-            }
-        });
-
         terimaBrg.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         terimaBrg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/warehouse.png"))); // NOI18N
         terimaBrg.setText("PENERIMAAN BARANG");
@@ -223,88 +180,38 @@ public class LamanUtama extends javax.swing.JFrame {
             }
         });
 
-        dataGangguan.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        dataGangguan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/checklist.png"))); // NOI18N
-        dataGangguan.setText("DATA GANGGUAN");
-        dataGangguan.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        dataGangguan.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        dataGangguan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataGangguanActionPerformed(evt);
-            }
-        });
-
-        daftarKerja.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        daftarKerja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/customer.png"))); // NOI18N
-        daftarKerja.setText("DAFTAR KERJA");
-        daftarKerja.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        daftarKerja.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        daftarKerja.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                daftarKerjaActionPerformed(evt);
-            }
-        });
-
-        setuju.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        setuju.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/ok (3).png"))); // NOI18N
-        setuju.setText("PERSETUJUAN");
-        setuju.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        setuju.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        setuju.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        setuju.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                setujuActionPerformed(evt);
-            }
-        });
-
-        progress.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        progress.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/work-in-progress.png"))); // NOI18N
-        progress.setText("PROGRES PEKERJAAN");
-        progress.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        progress.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        progress.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        progress.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                progressActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(progress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(daftarKerja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lapPengaduan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(dataGangguan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(terimaBrg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(setuju, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(layanan)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(brg)
+                .addGap(91, 91, 91))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addComponent(laporan)
+                .addGap(143, 143, 143)
+                .addComponent(terimaBrg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(27, 27, 27))
         );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lapPengaduan)
-                    .addComponent(dataGangguan))
-                .addGap(38, 38, 38)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(setuju, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(50, 50, 50))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(daftarKerja)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(terimaBrg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(progress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(129, 129, 129))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(layanan)
+                    .addComponent(brg))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addComponent(laporan))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(terimaBrg, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         keluar.setBackground(new java.awt.Color(30, 144, 255));
@@ -328,11 +235,11 @@ public class LamanUtama extends javax.swing.JFrame {
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(keluar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(172, 172, 172)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(keluar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -342,11 +249,9 @@ public class LamanUtama extends javax.swing.JFrame {
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(2, 2, 2)
                 .addComponent(keluar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -372,7 +277,7 @@ public class LamanUtama extends javax.swing.JFrame {
 
     private void layananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_layananActionPerformed
         // TODO add your handling code here:
-        Layanan layan = new Layanan();
+        Layanan layan = new Layanan(kodeLabel.getText());
          layan.setVisible(true);
          this.dispose();
     }//GEN-LAST:event_layananActionPerformed
@@ -391,71 +296,19 @@ public class LamanUtama extends javax.swing.JFrame {
        
     }//GEN-LAST:event_laporanActionPerformed
 
-    private void dataGangguanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataGangguanActionPerformed
+    private void teknisi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teknisi2ActionPerformed
         // TODO add your handling code here:
-        DataGangguan dataG = new DataGangguan();
-         dataG.setVisible(true);
-       
-    }//GEN-LAST:event_dataGangguanActionPerformed
+        
+        new Admin(null).setVisible(true);
+        
+    }//GEN-LAST:event_teknisi2ActionPerformed
 
     private void terimaBrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terimaBrgActionPerformed
         // TODO add your handling code here:
         TerimaBarang terima = new TerimaBarang();
         terima.setVisible(true);
-       
+
     }//GEN-LAST:event_terimaBrgActionPerformed
-
-    private void daftarKerjaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarKerjaActionPerformed
-        // TODO add your handling code here:
-        DataKerja dataK = new DataKerja();
-        dataK.setVisible(true);
-       
-    }//GEN-LAST:event_daftarKerjaActionPerformed
-
-    private void lapPengaduanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lapPengaduanActionPerformed
-        // TODO add your handling code here:
-       InputPengaduan input = new InputPengaduan();
-       input.setVisible(true);
-       
-    }//GEN-LAST:event_lapPengaduanActionPerformed
-
-    private void teknisi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teknisi2ActionPerformed
-        // TODO add your handling code here:
-        
-        if (statusLabel.getText().equals("Area")) {
-            KepalaArea karea = new KepalaArea(kodeLabel.getText());
-        karea.setVisible(true);
-        this.dispose();
-        }else if (statusLabel.getText().equals("Kepala Teknisi")) {
-             KepalaTeknisi kteknisi = new KepalaTeknisi(kodeLabel.getText());
-        kteknisi.setVisible(true);
-        this.dispose();
-        }else if (statusLabel.getText().equals("Admin")) {
-             Admin admin = new Admin(kodeLabel.getText());
-                  admin.setVisible(true);
-                  this.dispose();
-            
-        }else if (statusLabel.getText().equals("Teknisi")) {
-            Teknisi teknisi = new Teknisi(kodeLabel.getText());
-             
-                  teknisi.setVisible(true);
-                  this.dispose();
-        }else{
-            System.out.println("tidak ada");
-        }
-        
-    }//GEN-LAST:event_teknisi2ActionPerformed
-
-    private void progressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_progressActionPerformed
-        // TODO add your handling code here:
-         LapPengaduan show = new LapPengaduan();
-        show.setVisible(true);
-    }//GEN-LAST:event_progressActionPerformed
-
-    private void setujuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setujuActionPerformed
-        // TODO add your handling code here:
-       new PenentuanTeknisi().setVisible(true);
-    }//GEN-LAST:event_setujuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -494,25 +347,19 @@ public class LamanUtama extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static final javax.swing.JButton brg = new javax.swing.JButton();
-    public static final javax.swing.JButton daftarKerja = new javax.swing.JButton();
-    public static final javax.swing.JButton dataGangguan = new javax.swing.JButton();
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JButton keluar;
     public static javax.swing.JLabel kodeLabel;
-    public static final javax.swing.JButton lapPengaduan = new javax.swing.JButton();
     public static final javax.swing.JButton laporan = new javax.swing.JButton();
     public static final javax.swing.JButton layanan = new javax.swing.JButton();
     public static javax.swing.JLabel namaLabel;
-    public static javax.swing.JButton progress;
-    public static javax.swing.JButton setuju;
     public static javax.swing.JLabel statusLabel;
     public static final javax.swing.JButton teknisi2 = new javax.swing.JButton();
-    public static final javax.swing.JButton terimaBrg = new javax.swing.JButton();
+    private javax.swing.JButton terimaBrg;
     // End of variables declaration//GEN-END:variables
 }

@@ -27,7 +27,7 @@ public class UseBarang extends javax.swing.JFrame {
             table = new DefaultTableModel(null, col);
         String cariitem = txtCari.getText();
                 try {
-         String sql  = "SELECT * FROM barang where id like '%"+cariitem+"%' or nama like '%"+cariitem+"%' order by id asc";
+         String sql  = "SELECT * FROM barang where kd_barang like '%"+cariitem+"%' or nama_barang like '%"+cariitem+"%' order by kd_barang asc";
               Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
          while (hasil.next()){

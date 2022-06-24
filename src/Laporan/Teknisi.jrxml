@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="86d6d503-fc98-4cd7-a0cf-afeed3eebdc0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c97b08e3-2911-40d4-8830-9bc87cf85d38">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -16,7 +16,7 @@
 	<queryString language="SQL">
 		<![CDATA[SELECT
      teknisi.`kd_teknisi` AS teknisi_kd_teknisi,
-     teknisi.`nama` AS teknisi_nama,
+     teknisi.`nama_teknisi` AS teknisi_nama_teknisi,
      teknisi.`email` AS teknisi_email,
      teknisi.`username` AS teknisi_username,
      teknisi.`keterangan` AS teknisi_keterangan,
@@ -25,7 +25,7 @@ FROM
      `teknisi` teknisi]]>
 	</queryString>
 	<field name="teknisi_kd_teknisi" class="java.lang.String"/>
-	<field name="teknisi_nama" class="java.lang.String"/>
+	<field name="teknisi_nama_teknisi" class="java.lang.String"/>
 	<field name="teknisi_email" class="java.lang.String"/>
 	<field name="teknisi_username" class="java.lang.String"/>
 	<field name="teknisi_keterangan" class="java.lang.String"/>
@@ -36,21 +36,21 @@ FROM
 	<title>
 		<band height="136" splitType="Stretch">
 			<staticText>
-				<reportElement style="Title" x="170" y="0" width="290" height="62" uuid="ae771c56-7477-4815-8072-00f28a6fbd5a"/>
+				<reportElement style="Title" x="170" y="0" width="263" height="62" uuid="b8df58f8-8f67-4085-aee7-c1d613356004"/>
 				<textElement verticalAlignment="Middle">
 					<font pdfFontName="Times-Roman"/>
 				</textElement>
-				<text><![CDATA[Data Teknisi]]></text>
+				<text><![CDATA[Teknisi]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="SubTitle" x="219" y="62" width="196" height="22" uuid="389624ad-3f55-4d89-bb80-aedd9a9b038a"/>
+				<reportElement style="SubTitle" x="219" y="62" width="196" height="22" uuid="ecf5b155-43bc-4ab7-9e2a-8648141b8892"/>
 				<textElement>
 					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
 				</textElement>
 				<text><![CDATA[Coffee SubTitle]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="172" y="94" width="383" height="42" uuid="59782fec-bb07-4166-b966-1db7d4f27a1b"/>
+				<reportElement x="172" y="94" width="383" height="42" uuid="81f0432b-037d-4254-a4b9-6a46f67896a7"/>
 				<textElement textAlignment="Right">
 					<font size="10"/>
 				</textElement>
@@ -64,75 +64,63 @@ FROM
 	<columnHeader>
 		<band height="16" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="d7ffdbd3-d4ba-40ea-8b55-d0de96209c24"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="f468ff7b-6118-4243-8cc0-bb663b0df406"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="0" y="0" width="92" height="15" forecolor="#000000" uuid="af438f46-7b75-4599-bff4-b1d0a625fd81"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[Kode Teknisi]]></text>
+				<reportElement style="Column header" x="0" y="0" width="92" height="15" forecolor="#736343" uuid="fa87a6e8-d6fa-45f5-9df5-78bc77c3da31"/>
+				<text><![CDATA[teknisi_kd_teknisi]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="92" y="0" width="92" height="15" forecolor="#000000" uuid="3b122b0c-239f-45c3-9f43-f0f000271896"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[Nama]]></text>
+				<reportElement style="Column header" x="92" y="0" width="92" height="15" forecolor="#736343" uuid="2da583e7-41f6-4901-8fdd-e51978ec9a1b"/>
+				<text><![CDATA[teknisi_nama_teknisi]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="184" y="0" width="92" height="15" forecolor="#000000" uuid="8d70163b-9ada-48bc-9bdf-75a6e087fbcd"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[Email]]></text>
+				<reportElement style="Column header" x="184" y="0" width="92" height="15" forecolor="#736343" uuid="5626d34b-5787-494e-9d26-1c39268c3a88"/>
+				<text><![CDATA[teknisi_email]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="276" y="0" width="92" height="15" forecolor="#000000" uuid="d740214a-b5f2-48e7-bd81-74365f39ae04"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[Username]]></text>
+				<reportElement style="Column header" x="276" y="0" width="92" height="15" forecolor="#736343" uuid="6632e19a-bd78-4e90-a2b0-ddce4c9fb8d8"/>
+				<text><![CDATA[teknisi_username]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="368" y="0" width="92" height="15" forecolor="#000000" uuid="adceebb2-5599-44f6-bc75-41232fce6750"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[Keterangan]]></text>
+				<reportElement style="Column header" x="368" y="0" width="92" height="15" forecolor="#736343" uuid="a0e51f0a-a464-48c3-a9c1-3ca2e7bf1b3f"/>
+				<text><![CDATA[teknisi_keterangan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="460" y="0" width="92" height="15" forecolor="#000000" uuid="8a42bb48-f57a-44c2-9944-04ccfdd7f62f"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[Telepon]]></text>
+				<reportElement style="Column header" x="460" y="0" width="92" height="15" forecolor="#736343" uuid="ed3a7347-9493-4850-8583-0f8082c441d3"/>
+				<text><![CDATA[teknisi_telepon]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="15" splitType="Stretch">
 			<frame>
-				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="e873dec1-88b0-4bb9-825e-8fc5307a1455"/>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="ac1473f3-6e0b-41c6-9ced-416144bdcf0e"/>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="4f57bde3-607c-4484-95f8-5d7f341f051f"/>
-					<textElement textAlignment="Center"/>
+					<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="59881273-2648-4e57-a112-2206f5ab8317"/>
 					<textFieldExpression><![CDATA[$F{teknisi_kd_teknisi}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="92" y="0" width="92" height="15" uuid="dc20567c-0102-44cc-a367-2473243ef1c7"/>
-					<textElement textAlignment="Center"/>
-					<textFieldExpression><![CDATA[$F{teknisi_nama}]]></textFieldExpression>
+					<reportElement style="Detail" x="92" y="0" width="92" height="15" uuid="61b7c32c-749d-40c0-8142-39f80739b2d9"/>
+					<textFieldExpression><![CDATA[$F{teknisi_nama_teknisi}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="184" y="0" width="92" height="15" uuid="f3470264-ae39-4bca-9c14-3c3d3da95c12"/>
-					<textElement textAlignment="Center"/>
+					<reportElement style="Detail" x="184" y="0" width="92" height="15" uuid="22777744-1fcb-4c33-acde-98732ed540fc"/>
 					<textFieldExpression><![CDATA[$F{teknisi_email}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="276" y="0" width="92" height="15" uuid="c6e46a91-b49a-4c37-bd09-6fc3619553b8"/>
-					<textElement textAlignment="Center"/>
+					<reportElement style="Detail" x="276" y="0" width="92" height="15" uuid="ed55c622-3404-42cd-8a4f-b826ce033916"/>
 					<textFieldExpression><![CDATA[$F{teknisi_username}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="368" y="0" width="92" height="15" uuid="bd8d1c37-0bdf-4f19-81f9-f7d325454a0b"/>
-					<textElement textAlignment="Center"/>
+					<reportElement style="Detail" x="368" y="0" width="92" height="15" uuid="43025359-34dc-44f1-bedc-c8dbc02de977"/>
 					<textFieldExpression><![CDATA[$F{teknisi_keterangan}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="460" y="0" width="92" height="15" uuid="e618b531-6746-4f8d-911f-fbf141c47a4b"/>
-					<textElement textAlignment="Center"/>
+					<reportElement style="Detail" x="460" y="0" width="92" height="15" uuid="9b500bfd-d261-496e-8cf6-2f5b62653130"/>
 					<textFieldExpression><![CDATA[$F{teknisi_telepon}]]></textFieldExpression>
 				</textField>
 			</frame>
@@ -141,7 +129,7 @@ FROM
 	<columnFooter>
 		<band height="45" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="575c00b2-c5db-4ff3-8af0-df46e08f779f"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="42f508b3-1a09-4217-bdda-0feca6b831bc"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
@@ -149,7 +137,32 @@ FROM
 		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="25" splitType="Stretch"/>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="a4b90065-be8b-44e0-84ed-9d811143e8e4"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="c77c0171-d189-4739-8559-25d343a02f76"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="7a437b04-396e-42e5-bc8a-756648752ab4"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="ba8b16b8-6eb6-4005-9b65-782ccba7d2dd"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
 	</pageFooter>
 	<summary>
 		<band splitType="Stretch"/>

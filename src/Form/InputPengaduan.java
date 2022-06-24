@@ -46,7 +46,7 @@ public class InputPengaduan extends javax.swing.JFrame {
     
         protected void autonumber(){
         try {
-            String sql = "Select * from i_pengaduan order by kd_lapor asc";
+            String sql = "Select * from pengaduan order by kd_lapor asc";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             txtKd.setText("LP0001");
@@ -393,7 +393,7 @@ public class InputPengaduan extends javax.swing.JFrame {
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         // TODO add your handling code here:
-          String sql = "insert into i_pengaduan (kd_lapor,tgl,layanan,kpl_area,ruang,telepon,keluhan,status,kd_layanan,kd_area) values (?,?,?,?,?,?,?,?,?,?)";
+          String sql = "insert into pengaduan (kd_lapor,tgl,nama_layanan,nama_kplarea,ruang,telepon,keluhan,status,kd_layanan,kd_kplarea) values (?,?,?,?,?,?,?,?,?,?)";
           SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd");
            String fd = sdf.format(jtgl.getValue());
         try{
@@ -428,7 +428,7 @@ public class InputPengaduan extends javax.swing.JFrame {
         // TODO add your handling code here:
         int ok =  JOptionPane.showConfirmDialog(null,"hapus","Konfirmasi Dialog",JOptionPane.YES_NO_OPTION);
         if (ok==0){
-            String sql = "delete from i_pengaduan where kd_lapor ='"+txtKd.getText()+"'";
+            String sql = "delete from pengaduan where kd_lapor ='"+txtKd.getText()+"'";
             try{
                 PreparedStatement stat = conn.prepareStatement(sql);
                 stat.executeUpdate();
@@ -448,7 +448,7 @@ public class InputPengaduan extends javax.swing.JFrame {
 
     private void btnKlrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKlrActionPerformed
         // TODO add your handling code here:
-        new LamanUtama().setVisible(true);
+       
         this.dispose();
     }//GEN-LAST:event_btnKlrActionPerformed
 

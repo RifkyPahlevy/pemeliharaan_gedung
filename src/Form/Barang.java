@@ -33,16 +33,16 @@ public class Barang extends javax.swing.JFrame {
         txtStok.setText("");
         txtSatuan.setText("");
         cbJenis.setSelectedItem(null);
-        txtKet.setText("");
+      //  txtKet.setText("");
     }
      protected void autonumber(){
         try {
-            String sql = "Select * from barang order by id asc";
+            String sql = "Select * from barang order by kd_barang asc";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             txtKd.setText("KB0001");
             while(rs.next()){
-                String kd_brg = rs.getString("id").substring(2);
+                String kd_brg = rs.getString("kd_barang").substring(2);
                 int an = Integer.parseInt(kd_brg) + 1;
                 String nol = "";
                 
@@ -69,7 +69,7 @@ public class Barang extends javax.swing.JFrame {
             table = new DefaultTableModel(null, col);
         String cariitem = txtCari.getText();
                 try {
-         String sql  = "SELECT * FROM barang where id like '%"+cariitem+"%' or nama like '%"+cariitem+"%' order by id asc";
+         String sql  = "SELECT * FROM barang where kd_barang like '%"+cariitem+"%' or nama_barang like '%"+cariitem+"%' order by kd_barang asc";
               Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
          while (hasil.next()){
@@ -110,10 +110,6 @@ tblBrg.setModel(table);
         txtStok = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtSatuan = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtKet = new javax.swing.JTextArea();
-        btnTambah = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnBtl = new javax.swing.JButton();
@@ -234,27 +230,6 @@ tblBrg.setModel(table);
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/file.png"))); // NOI18N
-        jLabel6.setText("Keterangan");
-
-        txtKet.setBackground(new java.awt.Color(224, 255, 255));
-        txtKet.setColumns(20);
-        txtKet.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtKet.setRows(5);
-        jScrollPane1.setViewportView(txtKet);
-
-        btnTambah.setBackground(new java.awt.Color(255, 255, 255));
-        btnTambah.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/add-button.png"))); // NOI18N
-        btnTambah.setText("TAMBAH");
-        btnTambah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTambahActionPerformed(evt);
-            }
-        });
-
         btnHapus.setBackground(new java.awt.Color(255, 255, 255));
         btnHapus.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/trash.png"))); // NOI18N
@@ -268,7 +243,7 @@ tblBrg.setModel(table);
         btnEdit.setBackground(new java.awt.Color(255, 255, 255));
         btnEdit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/edit.png"))); // NOI18N
-        btnEdit.setText("EDIT");
+        btnEdit.setText("UBAH");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
@@ -319,18 +294,14 @@ tblBrg.setModel(table);
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel6))
-                                .addGap(50, 50, 50)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtStok, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(jLabel4))
+                                .addGap(93, 93, 93)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtStok, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(76, 76, 76))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(btnTambah)
-                        .addGap(18, 18, 18)
+                        .addGap(170, 170, 170)
                         .addComponent(btnBtl)
                         .addGap(20, 20, 20)
                         .addComponent(btnEdit)
@@ -365,13 +336,8 @@ tblBrg.setModel(table);
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTambah)
                     .addComponent(btnEdit)
                     .addComponent(btnBtl)
                     .addComponent(btnHapus))
@@ -426,7 +392,7 @@ tblBrg.setModel(table);
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 162, Short.MAX_VALUE)))
+                        .addGap(0, 158, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -437,7 +403,7 @@ tblBrg.setModel(table);
                     .addComponent(jLabel7)
                     .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
-                .addComponent(jScrollPane2)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -497,34 +463,6 @@ tblBrg.setModel(table);
         // TODO add your handling code here:
     }//GEN-LAST:event_cbJenisActionPerformed
 
-    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
-        // TODO add your handling code here:
-        String sql = "insert into barang values (?,?,?,?,?,?)";
-        try{
-            PreparedStatement stat = conn.prepareStatement(sql);
-            stat.setString(1, txtKd.getText());
-            stat.setString(2, txtBrg.getText());
-            stat.setString(3, cbJenis.getSelectedItem().toString());
-            stat.setString(4, txtStok.getText());
-            stat.setString(5, txtSatuan.getText());
-            stat.setString(6, txtKet.getText());
-
-            stat.executeUpdate();
-            JOptionPane.showMessageDialog(null, "data berhasil ditambah");
-            kosong();
-            txtKd.requestFocus();
-        }
-        catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "data gagal ditambah"+e);
-
-        }
-        datatable();
-        autonumber();
-        btnTambah.setEnabled(false);
-        btnBtl.setEnabled(false);
-
-    }//GEN-LAST:event_btnTambahActionPerformed
-
     private void btnBtlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBtlActionPerformed
         // TODO add your handling code here:
         kosong();
@@ -536,7 +474,7 @@ tblBrg.setModel(table);
         // TODO add your handling code here:
         int ok =  JOptionPane.showConfirmDialog(null,"hapus","Konfirmasi Dialog",JOptionPane.YES_NO_OPTION);
         if (ok==0){
-        String sql = "delete from barang where id ='"+txtKd.getText()+"'";
+        String sql = "delete from barang where kd_barang ='"+txtKd.getText()+"'";
         try{
         PreparedStatement stat = conn.prepareStatement(sql);
         stat.executeUpdate();
@@ -549,20 +487,20 @@ tblBrg.setModel(table);
         }
             datatable();
         }
-        btnTambah.setEnabled(true);
+       
         btnBtl.setEnabled(true);
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
         try{
-        String sql = "update barang set nama=?,jenis=?,stok = ?, satuan=?,keterangan=? where id='"+txtKd.getText()+"'";
+        String sql = "update barang set nama_barang=?,jenis=?,stok = ?, satuan=? where kd_barang='"+txtKd.getText()+"'";
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, txtBrg.getText());
             stat.setString(2, cbJenis.getSelectedItem().toString());
             stat.setString(3, txtStok.getText());
             stat.setString(4, txtSatuan.getText());
-            stat.setString(5, txtKet.getText());
+           
            
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil diubah");
@@ -597,7 +535,7 @@ tblBrg.setModel(table);
         }
             datatable();
         }
-        btnTambah.setEnabled(true);
+       
         btnBtl.setEnabled(true);
     }//GEN-LAST:event_btnEditActionPerformed
 
@@ -619,14 +557,14 @@ tblBrg.setModel(table);
         String c = table.getValueAt(bar, 2).toString();
         String d = table.getValueAt(bar, 3).toString();
         String e = table.getValueAt(bar, 4).toString();
-        String f = table.getValueAt(bar, 5).toString();
+       // String f = table.getValueAt(bar, 5).toString();
 
         txtKd.setText(a);
         txtBrg.setText(b);
         cbJenis.setSelectedItem(c);
         txtStok.setText(d);
         txtSatuan.setText(e);
-        txtKet.setText(f);
+       
     }//GEN-LAST:event_tblBrgMouseClicked
 
     /**
@@ -669,14 +607,12 @@ tblBrg.setModel(table);
     private javax.swing.JButton btnBtl;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnHapus;
-    private javax.swing.JButton btnTambah;
     private javax.swing.JComboBox cbJenis;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -684,13 +620,11 @@ tblBrg.setModel(table);
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblBrg;
     private javax.swing.JTextField txtBrg;
     private javax.swing.JTextField txtCari;
     private javax.swing.JTextField txtKd;
-    private javax.swing.JTextArea txtKet;
     private javax.swing.JTextField txtSatuan;
     private javax.swing.JTextField txtStok;
     // End of variables declaration//GEN-END:variables

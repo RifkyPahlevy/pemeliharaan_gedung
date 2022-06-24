@@ -27,7 +27,7 @@ public class PopKepalaArea extends javax.swing.JFrame {
             table = new DefaultTableModel(null, col);
         String cariitem = txtCari.getText();
                 try {
-         String sql  = "SELECT kd_area,nama,ruang,telepon FROM k_area where kd_area like '%"+cariitem+"%' or nama like '%"+cariitem+"%' order by kd_area asc";
+         String sql  = "SELECT kd_kplarea,nama_kplarea,ruang,telepon FROM kpl_area where kd_kplarea like '%"+cariitem+"%' or nama_kplarea like '%"+cariitem+"%' order by kd_kplarea asc";
         Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
                 while (hasil.next()){

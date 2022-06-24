@@ -28,7 +28,7 @@ private Connection conn = new Koneksi().connect();
             table = new DefaultTableModel(null, col);
         String cariitem = txtCari.getText();
                 try {
-          String sql  = "SELECT kd_lapor,tgl,layanan,kpl_area,ruang,telepon,keluhan,teknisi,tlp,tgl_p,status FROM i_pengaduan where status like '%"+"Proses"+"%' order by tgl asc"  ;
+          String sql  = "SELECT kd_lapor,tgl,nama_layanan,nama_kplarea,ruang,telepon,keluhan,nama_teknisi,tlp,tgl_perbaikan,status FROM pengaduan where status like '%"+"Proses"+"%' order by tgl asc"  ;
         Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
                 while (hasil.next()){

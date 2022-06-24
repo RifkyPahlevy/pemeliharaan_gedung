@@ -27,7 +27,7 @@ public class PopUpBarang extends javax.swing.JFrame {
             table = new DefaultTableModel(null, col);
         String cariitem = txtCari.getText();
                 try {
-         String sql  = "SELECT * FROM barang where id like '%"+cariitem+"%' or nama like '%"+cariitem+"%' order by id asc";
+         String sql  = "SELECT * FROM barang where kd_barang like '%"+cariitem+"%' or nama_barang like '%"+cariitem+"%' order by kd_barang asc";
               Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
          while (hasil.next()){
@@ -205,10 +205,12 @@ tblBrg.setModel(table);
     private void tblBrgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBrgMouseClicked
         // TODO add your handling code here:
         int tabelBarang = tblBrg.getSelectedRow();
+                input.kdBrg = tblBrg.getValueAt(tabelBarang, 0).toString();
         input.brg = tblBrg.getValueAt(tabelBarang, 1).toString();
+                input.jenis = tblBrg.getValueAt(tabelBarang, 2).toString();
          input.jml = tblBrg.getValueAt(tabelBarang, 3).toString();
          input.satu = tblBrg.getValueAt(tabelBarang, 4).toString();
-         input.ket = tblBrg.getValueAt(tabelBarang, 5).toString();
+         
           
          input.itemTerpilihBrg();
            this.dispose();

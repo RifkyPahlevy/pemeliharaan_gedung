@@ -12,6 +12,7 @@ public class KepalaArea extends javax.swing.JFrame {
 
     private Connection conn = new Koneksi().connect();
     private DefaultTableModel table;
+    private DefaultTableModel tabel2 = new DefaultTableModel();
     
     public String kode  ;
     public LapPengaduan lapP = null;
@@ -43,7 +44,7 @@ public class KepalaArea extends javax.swing.JFrame {
     public void isiField(){
         
         try {
-                   String sql  = "SELECT * FROM k_area where kd_area like '%"+kode+"%' order by kd_area asc";
+                   String sql  = "SELECT * FROM kpl_area where kd_kplarea like '%"+kode+"%' order by kd_kplarea asc";
         Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
             if (hasil.next()) {
@@ -64,6 +65,35 @@ public class KepalaArea extends javax.swing.JFrame {
         }
         
     }
+     private void daftarArea(){
+       tabel2.getDataVector().removeAllElements();
+        tabel2.fireTableDataChanged();
+       Object[] col ={"Kode","Nama Kepala","Email","Username","Ruang","Telepon"};
+            table = new DefaultTableModel(null, col);
+        
+                try {
+         String sql  = "SELECT nama_kplarea,email,username,password,ruang,telepon FROM kpl_area order by kd_kplarea asc";
+              Statement stat = conn.createStatement();
+                ResultSet hasil = stat.executeQuery(sql);
+         while (hasil.next()){
+          table.addRow(new Object[]{
+            hasil.getString(1),
+            hasil.getString(2),
+            hasil.getString(3),
+            hasil.getString(4),
+            hasil.getString(5),
+            hasil.getString(6)
+            
+            
+    }
+        );
+           }
+tableDialogSupplier.setModel(table);
+        } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "data gagal dipanggil"+e);
+        e.printStackTrace();
+    } 
+    }
     protected void kosong(){
         txtKd.setText("");
         txtKepala.setText("");
@@ -77,12 +107,12 @@ public class KepalaArea extends javax.swing.JFrame {
     }
     protected void autonumber(){
         try {
-            String sql = "Select * from k_area order by kd_area asc";
+            String sql = "Select * from kpl_area order by kd_kplarea asc";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             txtKd.setText("KA0001");
             while(rs.next()){
-                String kd_area = rs.getString("kd_area").substring(2);
+                String kd_area = rs.getString("kd_kplarea").substring(2);
                 int an = Integer.parseInt(kd_area) + 1;
                 String nol = "";
                 
@@ -108,6 +138,10 @@ public class KepalaArea extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialogAdmin = new javax.swing.JDialog();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tableDialogSupplier = new javax.swing.JTable();
+        btnDialogKembaliObat = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -130,8 +164,59 @@ public class KepalaArea extends javax.swing.JFrame {
         btnEdit = new javax.swing.JButton();
         btnBtl = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+
+        dialogAdmin.setSize(new java.awt.Dimension(450, 300));
+
+        tableDialogSupplier.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tableDialogSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableDialogSupplierMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tableDialogSupplier);
+
+        btnDialogKembaliObat.setText("Kembali");
+        btnDialogKembaliObat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDialogKembaliObatActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout dialogAdminLayout = new javax.swing.GroupLayout(dialogAdmin.getContentPane());
+        dialogAdmin.getContentPane().setLayout(dialogAdminLayout);
+        dialogAdminLayout.setHorizontalGroup(
+            dialogAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogAdminLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialogAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                    .addGroup(dialogAdminLayout.createSequentialGroup()
+                        .addComponent(btnDialogKembaliObat, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        dialogAdminLayout.setVerticalGroup(
+            dialogAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogAdminLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDialogKembaliObat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -247,7 +332,7 @@ public class KepalaArea extends javax.swing.JFrame {
         btnEdit.setBackground(new java.awt.Color(255, 255, 255));
         btnEdit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/edit.png"))); // NOI18N
-        btnEdit.setText("EDIT");
+        btnEdit.setText("UBAH");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
@@ -276,6 +361,13 @@ public class KepalaArea extends javax.swing.JFrame {
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("LIHAT");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -320,9 +412,6 @@ public class KepalaArea extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(btnTambah)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -330,7 +419,12 @@ public class KepalaArea extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBtl)))
+                        .addComponent(btnBtl))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(jButton1)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -374,7 +468,9 @@ public class KepalaArea extends javax.swing.JFrame {
                     .addComponent(btnEdit)
                     .addComponent(btnBtl))
                 .addGap(18, 18, 18)
-                .addComponent(btnBack)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
+                    .addComponent(jButton1))
                 .addGap(30, 30, 30))
         );
 
@@ -442,7 +538,7 @@ public class KepalaArea extends javax.swing.JFrame {
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
         try{
-            String sql = "update k_area set nama=?,email=?,username = ?,password=?,ruang=?, telepon=? where kd_area='"+kode+"'";
+            String sql = "update kpl_area set nama_kplarea=?,email=?,username = ?,password=?,ruang=?, telepon=? where kd_area='"+kode+"'";
             PreparedStatement stat = conn.prepareStatement(sql);
 
             stat.setString(1, txtKepala.getText());
@@ -479,7 +575,7 @@ public class KepalaArea extends javax.swing.JFrame {
         // TODO add your handling code here:
         int ok =  JOptionPane.showConfirmDialog(null,"hapus","Konfirmasi Dialog",JOptionPane.YES_NO_OPTION);
         if (ok==0){
-            String sql = "delete from k_area where kd_area ='"+txtKd.getText()+"'";
+            String sql = "delete from kpl_area where kd_kplarea ='"+txtKd.getText()+"'";
             String sql1 = "delete from user where id ='"+txtKd.getText()+"'";
             try{
                 PreparedStatement stat = conn.prepareStatement(sql);
@@ -500,7 +596,7 @@ public class KepalaArea extends javax.swing.JFrame {
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
         // TODO add your handling code here:
-        String sql = "insert into k_area values (?,?,?,?,?,?,?)";
+        String sql = "insert into kpl_area values (?,?,?,?,?,?,?)";
         String sql2 = "insert into user values(?,?,?,?,?,?)";
         try{
             PreparedStatement stat = conn.prepareStatement(sql);
@@ -552,6 +648,34 @@ public class KepalaArea extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnBackMouseClicked
 
+    private void tableDialogSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDialogSupplierMouseClicked
+        // TODO add your handling code here:
+        //        String getKd = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 0).toString();
+        //        String getNm = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 1).toString();
+        //        String getAlamat = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 2).toString();
+        //        String getNoTlp = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 3).toString();
+        //        String getEmail = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 4).toString();
+        //
+        //        txtKd.setText(getKd);
+        //        txtNama.setText(getNm);
+        //        txtAlamat.setText(getAlamat);
+        //        txtTlp.setText(getNoTlp);
+        //        txtEmail.setText(getEmail);
+
+        dialogAdmin.setVisible(false);
+    }//GEN-LAST:event_tableDialogSupplierMouseClicked
+
+    private void btnDialogKembaliObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDialogKembaliObatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDialogKembaliObatActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         dialogAdmin.setLocationRelativeTo(null);
+        daftarArea();
+        dialogAdmin.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
         
         
@@ -566,9 +690,12 @@ public class KepalaArea extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBtl;
+    private javax.swing.JButton btnDialogKembaliObat;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnTambah;
+    private javax.swing.JDialog dialogAdmin;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -580,7 +707,9 @@ public class KepalaArea extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JLabel labelKode;
+    private javax.swing.JTable tableDialogSupplier;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtKd;
     private javax.swing.JTextField txtKepala;

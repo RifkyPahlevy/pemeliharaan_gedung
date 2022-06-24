@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d01dea7f-c8a3-4074-9994-c1f9489c3b00">
 	<property name="ireport.zoom" value="1.7715610000000013"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="3"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -13,22 +13,24 @@
 			<style backcolor="#E6DAC3"/>
 		</conditionalStyle>
 	</style>
-	<queryString language="SQL">
+	<queryString>
 		<![CDATA[SELECT
-     kpl_teknisi.`id_kpl` AS kpl_teknisi_id_kpl,
-     kpl_teknisi.`nm_kpl` AS kpl_teknisi_nm_kpl,
+     kpl_teknisi.`kd_kplteknisi` AS kpl_teknisi_kd_kplteknisi,
+     kpl_teknisi.`nama_kplteknisi` AS kpl_teknisi_nama_kplteknisi,
      kpl_teknisi.`j_kelamin` AS kpl_teknisi_j_kelamin,
      kpl_teknisi.`alamat` AS kpl_teknisi_alamat,
      kpl_teknisi.`username` AS kpl_teknisi_username,
+     kpl_teknisi.`password` AS kpl_teknisi_password,
      kpl_teknisi.`telepon` AS kpl_teknisi_telepon
 FROM
      `kpl_teknisi` kpl_teknisi]]>
 	</queryString>
-	<field name="kpl_teknisi_id_kpl" class="java.lang.String"/>
-	<field name="kpl_teknisi_nm_kpl" class="java.lang.String"/>
+	<field name="kpl_teknisi_kd_kplteknisi" class="java.lang.String"/>
+	<field name="kpl_teknisi_nama_kplteknisi" class="java.lang.String"/>
 	<field name="kpl_teknisi_j_kelamin" class="java.lang.String"/>
 	<field name="kpl_teknisi_alamat" class="java.lang.String"/>
 	<field name="kpl_teknisi_username" class="java.lang.String"/>
+	<field name="kpl_teknisi_password" class="java.lang.String"/>
 	<field name="kpl_teknisi_telepon" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
@@ -72,7 +74,7 @@ FROM
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="16" splitType="Stretch">
+		<band height="19" splitType="Stretch">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="185bb7cf-cead-48e8-9223-2b30843b1512"/>
 				<graphicElement>
@@ -114,17 +116,7 @@ FROM
 	<detail>
 		<band height="15" splitType="Stretch">
 			<frame>
-				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="ab712397-a6a4-41fa-aacd-854630fe33c3"/>
-				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="efbdba45-97ee-4c4d-ac23-907a9c67aa61"/>
-					<textElement textAlignment="Center"/>
-					<textFieldExpression><![CDATA[$F{kpl_teknisi_id_kpl}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" x="92" y="0" width="92" height="15" uuid="2bab8203-6eec-4079-a766-9c2557ccc1b6"/>
-					<textElement textAlignment="Center"/>
-					<textFieldExpression><![CDATA[$F{kpl_teknisi_nm_kpl}]]></textFieldExpression>
-				</textField>
+				<reportElement style="Row" mode="Opaque" x="-3" y="0" width="555" height="15" uuid="ab712397-a6a4-41fa-aacd-854630fe33c3"/>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="184" y="0" width="92" height="15" uuid="7933c568-9b1b-4f5d-928f-b493b5a6f01b"/>
 					<textElement textAlignment="Center"/>
@@ -144,6 +136,14 @@ FROM
 					<reportElement style="Detail" x="460" y="0" width="92" height="15" uuid="223fab23-3766-4b6c-a493-53175deb3c43"/>
 					<textElement textAlignment="Center"/>
 					<textFieldExpression><![CDATA[$F{kpl_teknisi_telepon}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="30" y="216" width="57" height="20" uuid="e09dd486-cd6d-4ca5-9825-e1679311cab3"/>
+					<textFieldExpression><![CDATA[$F{kpl_teknisi_kd_kplteknisi}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="30" y="4" width="34" height="9" uuid="1ce5ffcd-6cea-48e2-bd3b-c8bd320ffae8"/>
+					<textFieldExpression><![CDATA[$F{kpl_teknisi_kd_kplteknisi}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>

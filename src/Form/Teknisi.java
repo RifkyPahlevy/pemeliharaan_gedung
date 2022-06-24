@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 public class Teknisi extends javax.swing.JFrame {
     private Connection conn = new Koneksi().connect();
     private DefaultTableModel table;
+    private DefaultTableModel tabel2 = new DefaultTableModel();
     public static String kdTeknisi ;
 
      
@@ -39,7 +40,35 @@ public class Teknisi extends javax.swing.JFrame {
     }
 
     
-    
+    private void daftarTeknisi(){
+       tabel2.getDataVector().removeAllElements();
+        tabel2.fireTableDataChanged();
+       Object[] col ={"Kode Teknisi","Nama Teknisi","Email","Username","Keterangan","telepon"};
+            table = new DefaultTableModel(null, col);
+        
+                try {
+         String sql  = "SELECT kd_teknisi,nama_teknisi,email,username,keterangan,telepon FROM teknisi order by kd_teknisi asc";
+              Statement stat = conn.createStatement();
+                ResultSet hasil = stat.executeQuery(sql);
+         while (hasil.next()){
+          table.addRow(new Object[]{
+            hasil.getString(1),
+            hasil.getString(2),
+            hasil.getString(3),
+            hasil.getString(4),
+            hasil.getString(5),
+            hasil.getString(6)
+            
+            
+    }
+        );
+           }
+tableDialogSupplier.setModel(table);
+        } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "data gagal dipanggil"+e);
+        e.printStackTrace();
+    } 
+    }
     protected void aktif(){
         txtKd.requestFocus();;
     }
@@ -112,7 +141,10 @@ public class Teknisi extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        dialogAdmin = new javax.swing.JDialog();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tableDialogSupplier = new javax.swing.JTable();
+        btnDialogKembaliObat = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -135,18 +167,58 @@ public class Teknisi extends javax.swing.JFrame {
         btnEdit = new javax.swing.JButton();
         btnBtl = new javax.swing.JButton();
         btnKembali = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        dialogAdmin.setSize(new java.awt.Dimension(450, 300));
+
+        tableDialogSupplier.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tableDialogSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableDialogSupplierMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tableDialogSupplier);
+
+        btnDialogKembaliObat.setText("Kembali");
+        btnDialogKembaliObat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDialogKembaliObatActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout dialogAdminLayout = new javax.swing.GroupLayout(dialogAdmin.getContentPane());
+        dialogAdmin.getContentPane().setLayout(dialogAdminLayout);
+        dialogAdminLayout.setHorizontalGroup(
+            dialogAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogAdminLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialogAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                    .addGroup(dialogAdminLayout.createSequentialGroup()
+                        .addComponent(btnDialogKembaliObat, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        dialogAdminLayout.setVerticalGroup(
+            dialogAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogAdminLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDialogKembaliObat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -254,7 +326,7 @@ public class Teknisi extends javax.swing.JFrame {
         btnEdit.setBackground(new java.awt.Color(255, 255, 255));
         btnEdit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/edit.png"))); // NOI18N
-        btnEdit.setText("EDIT");
+        btnEdit.setText("UBAH");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
@@ -278,6 +350,13 @@ public class Teknisi extends javax.swing.JFrame {
         btnKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKembaliActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("LIHAT");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -313,9 +392,7 @@ public class Teknisi extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                         .addComponent(txtTlp, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnEdit)
-                                            .addComponent(jLabel6))
+                                        .addComponent(jLabel6)
                                         .addGap(10, 10, 10)))))
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtPass)
@@ -325,6 +402,10 @@ public class Teknisi extends javax.swing.JFrame {
                         .addComponent(btnTambah)
                         .addGap(78, 78, 78)
                         .addComponent(btnHapus)
+                        .addGap(49, 49, 49)
+                        .addComponent(btnEdit)
+                        .addGap(29, 29, 29)
+                        .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnBtl))
                     .addComponent(btnKembali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -364,7 +445,8 @@ public class Teknisi extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnEdit)
                         .addComponent(btnHapus)
-                        .addComponent(btnBtl)))
+                        .addComponent(btnBtl)
+                        .addComponent(jButton1)))
                 .addGap(27, 27, 27)
                 .addComponent(btnKembali)
                 .addContainerGap(39, Short.MAX_VALUE))
@@ -427,7 +509,7 @@ public class Teknisi extends javax.swing.JFrame {
         // TODO add your handling code here:
          
         try{
-            String sql = "update teknisi set nama=?,email=?,username = ?,password=?, telepon=?,keterangan=? where kd_teknisi='"+kdTeknisi+"'";
+            String sql = "update teknisi set nama_teknisi=?,email=?,username = ?,password=?, telepon=?,keterangan=? where kd_teknisi='"+kdTeknisi+"'";
             PreparedStatement stat = conn.prepareStatement(sql);
             
             stat.setString(1, txtTek.getText());
@@ -547,6 +629,34 @@ public class Teknisi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbKetActionPerformed
 
+    private void tableDialogSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDialogSupplierMouseClicked
+        // TODO add your handling code here:
+        //        String getKd = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 0).toString();
+        //        String getNm = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 1).toString();
+        //        String getAlamat = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 2).toString();
+        //        String getNoTlp = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 3).toString();
+        //        String getEmail = tableDialogSupplier.getValueAt(tableDialogSupplier.getSelectedRow(), 4).toString();
+        //
+        //        txtKd.setText(getKd);
+        //        txtNama.setText(getNm);
+        //        txtAlamat.setText(getAlamat);
+        //        txtTlp.setText(getNoTlp);
+        //        txtEmail.setText(getEmail);
+
+        dialogAdmin.setVisible(false);
+    }//GEN-LAST:event_tableDialogSupplierMouseClicked
+
+    private void btnDialogKembaliObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDialogKembaliObatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDialogKembaliObatActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         dialogAdmin.setLocationRelativeTo(null);
+        daftarTeknisi();
+        dialogAdmin.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -561,11 +671,14 @@ public class Teknisi extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBtl;
+    private javax.swing.JButton btnDialogKembaliObat;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnKembali;
     private javax.swing.JButton btnTambah;
     private javax.swing.JComboBox cbKet;
+    private javax.swing.JDialog dialogAdmin;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
@@ -574,11 +687,12 @@ public class Teknisi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JLabel labelKode;
+    private javax.swing.JTable tableDialogSupplier;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtKd;
     private javax.swing.JTextField txtPass;

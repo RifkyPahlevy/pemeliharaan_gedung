@@ -28,7 +28,7 @@ public class PopUpTeknisi extends javax.swing.JFrame {
             table = new DefaultTableModel(null, col);
         String cariitem = txtCari.getText();
                 try {
-         String sql  = "SELECT kd_teknisi,nama,email,username,keterangan,telepon FROM teknisi where kd_teknisi like '%"+cariitem+"%' or nama like '%"+cariitem+"%' order by kd_teknisi asc";
+         String sql  = "SELECT kd_teknisi,nama_teknisi,email,username,keterangan,telepon FROM teknisi where kd_teknisi like '%"+cariitem+"%' or nama_teknisi like '%"+cariitem+"%' order by kd_teknisi asc";
         Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
                 while (hasil.next()){

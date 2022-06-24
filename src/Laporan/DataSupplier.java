@@ -31,7 +31,7 @@ public class DataSupplier extends javax.swing.JFrame {
             table = new DefaultTableModel(null, col);
         String cariitem = txtCari.getText();
                 try {
-         String sql  = "SELECT * FROM t_barang" ;
+         String sql  = "SELECT * FROM supplier" ;
         Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
                 while (hasil.next()){
@@ -295,7 +295,7 @@ public class DataSupplier extends javax.swing.JFrame {
         // TODO add your handling code here:
         int ok =  JOptionPane.showConfirmDialog(null,"hapus","Konfirmasi Dialog",JOptionPane.YES_NO_OPTION);
         if (ok==0){
-            String sql = "delete from t_barang where kd_spr ='"+kode+"'";
+            String sql = "delete from supplier where kd_spr ='"+kode+"'";
             try{
                 PreparedStatement stat = conn.prepareStatement(sql);
                 stat.executeUpdate();

@@ -47,7 +47,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("L O G I N");
+        jLabel1.setText("M A S U K");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -67,7 +67,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/typography.png"))); // NOI18N
-        jLabel2.setText("U S E R N A M E");
+        jLabel2.setText("NAMA PENGGUNA");
 
         txtUser.setBackground(new java.awt.Color(224, 255, 255));
         txtUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -79,7 +79,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/secure.png"))); // NOI18N
-        jLabel3.setText("P A S S W O R D");
+        jLabel3.setText("KATA SANDI");
 
         txtPswrd.setBackground(new java.awt.Color(224, 255, 255));
         txtPswrd.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -102,7 +102,7 @@ public class Login extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Forgot Password ?");
+        jLabel6.setText("LUPA KATA SANDI?");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
@@ -128,19 +128,22 @@ public class Login extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(15, 15, 15)
-                            .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                            .addGap(3, 3, 3))
-                        .addComponent(jLabel7))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPswrd, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(101, 101, 101)
+                        .addComponent(jLabel7))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtPswrd, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(3, 3, 3)))))
                 .addGap(101, 101, 101))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,103 +237,33 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLgnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLgnActionPerformed
         // TODO add your handling code here:
-                LamanUtama utama = new LamanUtama();
+              
         try {
             String sql = "SELECT * FROM user where username = '"+txtUser.getText()+"' and password = '"+txtPswrd.getText()+"'";
             Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
          
             if(hasil.next()){
-                utama.kodeLabel.setText(hasil.getString(1));
-              utama.namaLabel.setText(hasil.getString(2));
-
-                       utama.statusLabel.setText(hasil.getString(5));
-
+              
                 
                 if(hasil.getString("level").equals("Admin")){
                     JOptionPane.showMessageDialog(null, "Berhasil Login");
-                this.setVisible(false);
-                    
-                    
-                    utama.setVisible(true);
-                    utama.lapPengaduan.setEnabled(false);
-                    utama.daftarKerja.setEnabled(false);
-                    utama.brg.setEnabled(true);
-                    
-                    utama.layanan.setEnabled(true);
-                   
-                    utama.dataGangguan.setEnabled(true);
-                    utama.terimaBrg.setEnabled(true);
-                   
-                    utama.laporan.setEnabled(true);
-             
+                    LamanUtama utama = new LamanUtama();
+                      utama.kodeLabel.setText(hasil.getString(1));
+              utama.namaLabel.setText(hasil.getString(2));
+                       utama.statusLabel.setText(hasil.getString(5));
+                       utama.setVisible(true);
+                this.dispose();
                     this.dispose();
-                }else if(hasil.getString("level").equals("Kepala Teknisi")){
+                }else {
                     JOptionPane.showMessageDialog(null, "Berhasil Login");
-                this.setVisible(false);
-                    
-                    utama.setVisible(true);
-                    utama.brg.setEnabled(false);
-                    
-                    utama.layanan.setEnabled(false);
-                    
-                    utama.daftarKerja.setEnabled(true);
-                    utama.dataGangguan.setEnabled(true);
-                    utama.terimaBrg.setEnabled(false);
-                    utama.lapPengaduan.setEnabled(false);
-                   
-                       
-                   
-                    utama.laporan.setEnabled(false);
-//                    
-//                    
-             
-                    
-                    this.dispose();
-                }
-            
-                else if(hasil.getString("level").equals("Teknisi")){
-                    JOptionPane.showMessageDialog(null, "Berhasil Login");
-                this.setVisible(false);
-                    
-                    utama.setVisible(true);
-                    utama.brg.setEnabled(false);
-                    
-                    utama.layanan.setEnabled(false);
-                    
-                    utama.daftarKerja.setEnabled(true);
-                    utama.dataGangguan.setEnabled(false);
-                    utama.terimaBrg.setEnabled(false);
-                    utama.setuju.setEnabled(false);
-                    
-                    utama.lapPengaduan.setEnabled(false);
+                    LamanUtamaUser utama = new LamanUtamaUser(hasil.getString(5));
+                    utama.kodeLabel.setText(hasil.getString(1));
+              utama.namaLabel.setText(hasil.getString(2));
 
-                   
-                    utama.laporan.setEnabled(false);
-                   
-             
-                    
-                    this.dispose();
-                }
-                
-                else if(hasil.getString("level").equals("Area")){
-                    JOptionPane.showMessageDialog(null, "Berhasil Login");
-                this.setVisible(false);
-                    
-                    utama.setVisible(true);
-                    
-                    utama.brg.setEnabled(false);
-                    utama.layanan.setEnabled(false);
-                    
-                    utama.daftarKerja.setEnabled(false);
-                    utama.terimaBrg.setEnabled(false);
-                    
-                   
-                    utama.laporan.setEnabled(false);
-                    utama.dataGangguan.setEnabled(false);
-                    
-                    
-                
+                       utama.statusLabel.setText(hasil.getString(5));
+                       utama.setVisible(true);
+                       this.dispose();
                 }
                 
             }
@@ -361,110 +294,110 @@ public class Login extends javax.swing.JFrame {
 
     private void txtPswrdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPswrdActionPerformed
         // TODO add your handling code here:
-         LamanUtama utama = new LamanUtama();
-        try {
-            String sql = "SELECT * FROM user where username = '"+txtUser.getText()+"' and password = '"+txtPswrd.getText()+"'";
-            Statement stat = conn.createStatement();
-                ResultSet hasil = stat.executeQuery(sql);
-         
-            if(hasil.next()){
-                utama.kodeLabel.setText(hasil.getString(1));
-              utama.namaLabel.setText(hasil.getString(2));
-
-                       utama.statusLabel.setText(hasil.getString(5));
-
-                
-                if(hasil.getString("level").equals("Admin")){
-                    JOptionPane.showMessageDialog(null, "Berhasil Login");
-                this.setVisible(false);
-                    
-                    
-                   utama.setVisible(true);
-                    utama.lapPengaduan.setEnabled(false);
-                    utama.daftarKerja.setEnabled(false);
-                    
-                    utama.dataGangguan.setEnabled(false);
-                    utama.setuju.setEnabled(false);
-                    utama.progress.setEnabled(false);
-                    
-                    
-                    this.dispose();
-                }else if(hasil.getString("level").equals("Kepala Teknisi")){
-                    JOptionPane.showMessageDialog(null, "Berhasil Login");
-                this.setVisible(false);
-                    
-                    utama.setVisible(true);
-                    utama.brg.setEnabled(false);
-                    
-                    utama.layanan.setEnabled(false);
-                    
-                 
-                    utama.terimaBrg.setEnabled(false);
-                    utama.lapPengaduan.setEnabled(false);
-                    utama.dataGangguan.setEnabled(true);
-                       
-                   
-                    utama.laporan.setEnabled(false);
+//         LamanUtama utama = new LamanUtama();
+//        try {
+//            String sql = "SELECT * FROM user where username = '"+txtUser.getText()+"' and password = '"+txtPswrd.getText()+"'";
+//            Statement stat = conn.createStatement();
+//                ResultSet hasil = stat.executeQuery(sql);
+//         
+//            if(hasil.next()){
+//                utama.kodeLabel.setText(hasil.getString(1));
+//              utama.namaLabel.setText(hasil.getString(2));
+//
+//                       utama.statusLabel.setText(hasil.getString(5));
+//
+//                
+//                if(hasil.getString("level").equals("Admin")){
+//                    JOptionPane.showMessageDialog(null, "Berhasil Login");
+//                this.setVisible(false);
 //                    
 //                    
-             
-                    
-                    this.dispose();
-                }
-            
-                else if(hasil.getString("level").equals("Teknisi")){
-                    JOptionPane.showMessageDialog(null, "Berhasil Login");
-                this.setVisible(false);
-                    
-                    utama.setVisible(true);
-                    utama.brg.setEnabled(false);
-                    
-                    utama.layanan.setEnabled(false);
-                    
-                   
-                    utama.dataGangguan.setEnabled(false);
-                    utama.terimaBrg.setEnabled(false);
-                    
-                    utama.lapPengaduan.setEnabled(false);
-
-                   
-                    utama.laporan.setEnabled(false);
-                   
-             
-                    
-                    this.dispose();
-                }
-                
-                else if(hasil.getString("level").equals("Area")){
-                    JOptionPane.showMessageDialog(null, "Berhasil Login");
-                this.setVisible(false);
-                    
-                    utama.setVisible(true);
-                    
-                    utama.brg.setEnabled(false);
-                    utama.layanan.setEnabled(false);
-                    
-                    utama.daftarKerja.setEnabled(false);
-                    utama.terimaBrg.setEnabled(false);
-                    utama.setuju.setEnabled(false);
-                    
-                    utama.laporan.setEnabled(false);
-                    utama.dataGangguan.setEnabled(false);
-                    
-                    
-                
-                }
-                
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Maaf password atau username anda salah");
-                txtUser.setText("");
-                txtPswrd.setText("");
-                txtUser.requestFocus();
-            }
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        }
+//                   utama.setVisible(true);
+//                    utama.lapPengaduan.setEnabled(false);
+//                    utama.daftarKerja.setEnabled(false);
+//                    
+//                    utama.dataGangguan.setEnabled(false);
+//                    utama.setuju.setEnabled(false);
+//                    utama.progress.setEnabled(false);
+//                    
+//                    
+//                    this.dispose();
+//                }else if(hasil.getString("level").equals("Kepala Teknisi")){
+//                    JOptionPane.showMessageDialog(null, "Berhasil Login");
+//                this.setVisible(false);
+//                    
+//                    utama.setVisible(true);
+//                    utama.brg.setEnabled(false);
+//                    
+//                    utama.layanan.setEnabled(false);
+//                    
+//                 
+//                    utama.terimaBrg.setEnabled(false);
+//                    utama.lapPengaduan.setEnabled(false);
+//                    utama.dataGangguan.setEnabled(true);
+//                       
+//                   
+//                    utama.laporan.setEnabled(false);
+////                    
+////                    
+//             
+//                    
+//                    this.dispose();
+//                }
+//            
+//                else if(hasil.getString("level").equals("Teknisi")){
+//                    JOptionPane.showMessageDialog(null, "Berhasil Login");
+//                this.setVisible(false);
+//                    
+//                    utama.setVisible(true);
+//                    utama.brg.setEnabled(false);
+//                    
+//                    utama.layanan.setEnabled(false);
+//                    
+//                   
+//                    utama.dataGangguan.setEnabled(false);
+//                    utama.terimaBrg.setEnabled(false);
+//                    
+//                    utama.lapPengaduan.setEnabled(false);
+//
+//                   
+//                    utama.laporan.setEnabled(false);
+//                   
+//             
+//                    
+//                    this.dispose();
+//                }
+//                
+//                else if(hasil.getString("level").equals("Area")){
+//                    JOptionPane.showMessageDialog(null, "Berhasil Login");
+//                this.setVisible(false);
+//                    
+//                    utama.setVisible(true);
+//                    
+//                    utama.brg.setEnabled(false);
+//                    utama.layanan.setEnabled(false);
+//                    
+//                    utama.daftarKerja.setEnabled(false);
+//                    utama.terimaBrg.setEnabled(false);
+//                    utama.setuju.setEnabled(false);
+//                    
+//                    utama.laporan.setEnabled(false);
+//                    utama.dataGangguan.setEnabled(false);
+//                    
+//                    
+//                
+//                }
+//                
+//            }
+//            else{
+//                JOptionPane.showMessageDialog(null, "Maaf password atau username anda salah");
+//                txtUser.setText("");
+//                txtPswrd.setText("");
+//                txtUser.requestFocus();
+//            }
+//        }catch(SQLException e){
+//            JOptionPane.showMessageDialog(null, e);
+//        }
     }//GEN-LAST:event_txtPswrdActionPerformed
 
     /**

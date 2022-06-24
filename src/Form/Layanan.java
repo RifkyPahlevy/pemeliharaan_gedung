@@ -13,15 +13,18 @@ public class Layanan extends javax.swing.JFrame {
 
     private Connection conn = new Koneksi().connect();
     private DefaultTableModel table;
+    public String kdAdmin;
     
     public LapPengaduan lapP = null;
     
-    public Layanan() {
+    public Layanan(String kode) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.kdAdmin = kode;
         kosong();
         aktif();
         datatable();
+        autonumber();
     }
 
     protected void aktif(){
@@ -35,12 +38,41 @@ public class Layanan extends javax.swing.JFrame {
         
     }
      
+     protected void autonumber(){
+        try {
+            String sql = "Select * from layanan order by kd_layanan asc";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            txtKode.setText("KL0001");
+            while(rs.next()){
+                String kd_brg = rs.getString("kd_layanan").substring(2);
+                int an = Integer.parseInt(kd_brg) + 1;
+                String nol = "";
+                
+                if (an < 10) {
+                    nol = "000";
+                }else if (an <100) {
+                    nol = "00";
+                }else if (an < 1000) {
+                    nol = "0";
+                }else if (an < 10000) {
+                    nol = "";
+                }
+                
+                txtKode.setText("KL"+nol+an);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Auto Number Gagal"+e);
+            e.printStackTrace();
+            
+        }
+    }
      protected void datatable(){
         Object[] col ={"Kode Layanan","Nama Layanan","Keterangan"};
             table = new DefaultTableModel(null, col);
         String cariitem = txtCari.getText();
                 try {
-         String sql  = "SELECT * FROM layanan where kd_layanan like '%"+cariitem+"%' or nm_layanan like '%"+cariitem+"%' order by kd_layanan asc";
+         String sql  = "SELECT * FROM layanan where kd_layanan like '%"+cariitem+"%' or nama_layanan like '%"+cariitem+"%' order by kd_layanan asc";
               Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
          while (hasil.next()){
@@ -337,12 +369,14 @@ tblLayanan.setModel(table);
 
     private void txtTmbhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTmbhActionPerformed
         // TODO add your handling code here:
-        String sql = "insert into layanan values (?,?,?)";
+        String sql = "insert into layanan values (?,?,?,?)";
         try{
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, txtKode.getText());
             stat.setString(2, txtNama.getText());
             stat.setString(3, txtKet.getText());
+            stat.setString(4, kdAdmin);
+            
             
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil ditambah");
@@ -444,7 +478,7 @@ tblLayanan.setModel(table);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Layanan().setVisible(true);
+                new Layanan(null).setVisible(true);
             }
         });
     }
