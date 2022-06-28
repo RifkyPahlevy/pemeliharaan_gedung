@@ -16,7 +16,7 @@ public class InputPengaduan extends javax.swing.JFrame {
     private Connection conn = new Koneksi().connect();
     private DefaultTableModel table;
      private DefaultTableModel tabel2 = new DefaultTableModel();
-    public String layanan,kplArea,ruang,tlp,kode,kodeKepala;
+    public String layanan,kdlayanan,kplArea,ruang,tlp,kode,kodeKepala;
     public LapPengaduan LapP;
     
     public InputPengaduan() {
@@ -503,21 +503,18 @@ tableDialogSupplier.setModel(table);
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         // TODO add your handling code here:
-          String sql = "insert into pengaduan (kd_lapor,tgl,nama_layanan,nama_kplarea,ruang,telepon,keluhan,status,kd_layanan,kd_kplarea) values (?,?,?,?,?,?,?,?,?,?)";
+          String sql = "insert into pengaduan (kd_lapor,tgl,kd_layanan,kd_kplarea,keluhan,status) values (?,?,?,?,?,?)";
           SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd");
            String fd = sdf.format(jtgl.getValue());
         try{
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, txtKd.getText());
             stat.setString(2, fd);
-            stat.setString(3, txtLyn.getText());
-            stat.setString(4, txtKpl.getText());
-            stat.setString(5, txtRoom.getText());
-            stat.setString(6, txtTlp.getText());
-            stat.setString(7, txtKlh.getText());
-            stat.setString(8, "Menunggu");
-            stat.setString(9, kode);
-            stat.setString(10, kodeKepala);
+            stat.setString(3, kode);
+            stat.setString(4, kodeKepala);
+            
+            stat.setString(5, txtKlh.getText());
+            stat.setString(6, "Menunggu");
             
             
             stat.executeUpdate();
@@ -528,7 +525,7 @@ tableDialogSupplier.setModel(table);
         }
         catch (SQLException e){
             JOptionPane.showMessageDialog(null, "Laporan Gagal Ditambahkan"+e);
-
+           
         }
          
         autonumber();

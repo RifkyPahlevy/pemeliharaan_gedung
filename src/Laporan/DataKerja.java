@@ -28,22 +28,43 @@ private Connection conn = new Koneksi().connect();
             table = new DefaultTableModel(null, col);
         String cariitem = txtCari.getText();
                 try {
-          String sql  = "SELECT kd_lapor,tgl,nama_layanan,nama_kplarea,ruang,telepon,keluhan,nama_teknisi,tlp,tgl_perbaikan,status FROM pengaduan where status like '%"+"Proses"+"%' order by tgl asc"  ;
-        Statement stat = conn.createStatement();
+          String sql = "SELECT\n" +
+"     pengaduan.`kd_lapor` ,\n" +
+"     pengaduan.`tgl` ,\n" +
+"     pengaduan.`kd_layanan` ,\n" +
+"     pengaduan.`kd_kplarea` ,\n" +
+"     pengaduan.`keluhan` ,\n" +
+"     pengaduan.`kd_teknisi`,\n" +
+"     pengaduan.`tgl_perbaikan`,\n" +
+"     pengaduan.`status` ,\n" +
+"     teknisi.`kd_teknisi`,\n" +
+"     teknisi.`nama_teknisi`,\n" +
+"     teknisi.`telepon` ,\n" +
+"     layanan.`kd_layanan`,\n" +
+"     layanan.`nama_layanan`,\n" +
+"     kpl_area.`kd_kplarea`,\n" +
+"     kpl_area.`nama_kplarea`,\n" +
+"     kpl_area.`ruang` ,\n" +
+"     kpl_area.`telepon`\n" +
+"FROM\n" +
+"     `teknisi` teknisi INNER JOIN `pengaduan` pengaduan ON teknisi.`kd_teknisi` = pengaduan.`kd_teknisi`\n" +
+"     INNER JOIN `layanan` layanan ON pengaduan.`kd_layanan` = layanan.`kd_layanan`\n" +
+"     INNER JOIN `kpl_area` kpl_area ON pengaduan.`kd_kplarea` = kpl_area.`kd_kplarea`;";
+          Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
                 while (hasil.next()){
         table.addRow(new Object[]{
-            hasil.getString(1),
-            hasil.getString(2),
-            hasil.getString(3),
-            hasil.getString(4),
-            hasil.getString(5),
-            hasil.getString(6),
-            hasil.getString(7),
-            hasil.getString(8),
-            hasil.getString(9),
-            hasil.getString(10),
-            hasil.getString(11)
+            hasil.getString("kd_lapor"),
+            hasil.getString("tgl"),
+            hasil.getString("nama_layanan"),
+            hasil.getString("nama_kplarea"),
+            hasil.getString("ruang"),
+            hasil.getString("telepon"),
+            hasil.getString("keluhan"),
+            hasil.getString("nama_teknisi"),
+            hasil.getString("telepon"),
+            hasil.getString("tgl_perbaikan"),
+            hasil.getString("status")
             
             
             

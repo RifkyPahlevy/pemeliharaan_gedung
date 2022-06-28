@@ -24,27 +24,48 @@ public DataGangguan dg = null;
         datatable();
 
     }
-     protected void datatable(){
+    protected void datatable(){
         Object[] col ={"No-Lapor","Tanggal","Layanan","Kepala Area","Ruang","Telepon","Keluhan","Teknisi","Telepon","Tanggal Perbaikan","Status"};
             table = new DefaultTableModel(null, col);
         
                 try {
-        String sql  = "SELECT kd_lapor,tgl,nama_layanan,nama_kplarea,ruang,telepon,keluhan,nama_teknisi,tlp,tgl_perbaikan,status FROM pengaduan where status like '%"+"selesai"+"%' order by tgl asc"  ;
-        Statement stat = conn.createStatement();
+          String sql = "SELECT\n" +
+"     pengaduan.`kd_lapor` ,\n" +
+"     pengaduan.`tgl` ,\n" +
+"     pengaduan.`kd_layanan` ,\n" +
+"     pengaduan.`kd_kplarea` ,\n" +
+"     pengaduan.`keluhan` ,\n" +
+"     pengaduan.`kd_teknisi`,\n" +
+"     pengaduan.`tgl_perbaikan`,\n" +
+"     pengaduan.`status` ,\n" +
+"     teknisi.`kd_teknisi`,\n" +
+"     teknisi.`nama_teknisi`,\n" +
+"     teknisi.`telepon` ,\n" +
+"     layanan.`kd_layanan`,\n" +
+"     layanan.`nama_layanan`,\n" +
+"     kpl_area.`kd_kplarea`,\n" +
+"     kpl_area.`nama_kplarea`,\n" +
+"     kpl_area.`ruang` ,\n" +
+"     kpl_area.`telepon`\n" +
+"FROM\n" +
+"     `teknisi` teknisi INNER JOIN `pengaduan` pengaduan ON teknisi.`kd_teknisi` = pengaduan.`kd_teknisi`\n" +
+"     INNER JOIN `layanan` layanan ON pengaduan.`kd_layanan` = layanan.`kd_layanan`\n" +
+"     INNER JOIN `kpl_area` kpl_area ON pengaduan.`kd_kplarea` = kpl_area.`kd_kplarea`;";
+          Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
                 while (hasil.next()){
         table.addRow(new Object[]{
-            hasil.getString(1),
-            hasil.getString(2),
-            hasil.getString(3),
-            hasil.getString(4),
-            hasil.getString(5),
-            hasil.getString(6),
-            hasil.getString(7),
-            hasil.getString(8),
-            hasil.getString(9),
-            hasil.getString(10),
-            hasil.getString(11)
+            hasil.getString("kd_lapor"),
+            hasil.getString("tgl"),
+            hasil.getString("nama_layanan"),
+            hasil.getString("nama_kplarea"),
+            hasil.getString("ruang"),
+            hasil.getString("telepon"),
+            hasil.getString("keluhan"),
+            hasil.getString("nama_teknisi"),
+            hasil.getString("telepon"),
+            hasil.getString("tgl_perbaikan"),
+            hasil.getString("status")
             
             
             
@@ -62,7 +83,6 @@ public DataGangguan dg = null;
     e.printStackTrace();
 } 
     }
-    
     
      public void itemTerpilihTek(){
         
@@ -474,22 +494,14 @@ public DataGangguan dg = null;
 
     private void btnTmbhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTmbhActionPerformed
         // TODO add your handling code here:
-        String sql = "update pengaduan set kd_lapor=?,tgl=?,nama_layanan=?,nama_kplarea=?,ruang=?,telepon=?,keluhan=?,nama_teknisi=?,tlp=?,status=?,kd_teknisi=? where kd_lapor = '"+txtKd.getText()+"'";
+        String sql = "update pengaduan set status=?,kd_teknisi=? where kd_lapor = '"+txtKd.getText()+"'";
           SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd");
            String fd = sdf.format(jtgl.getValue());
         try{
             PreparedStatement stat = conn.prepareStatement(sql);
-            stat.setString(1, txtKd.getText());
-            stat.setString(2, fd);
-            stat.setString(3, txtLyn.getText());
-            stat.setString(4, txtKpl.getText());
-            stat.setString(5, txtRuang.getText());
-            stat.setString(6, txtTlp.getText());
-            stat.setString(7, txtKlh.getText());
-            stat.setString(8, txtTek.getText());
-            stat.setString(9, txtTlp1.getText());
-            stat.setString(10, "Proses");
-            stat.setString(11, kode);
+            
+            stat.setString(1, "Proses");
+            stat.setString(2, kode);
             
             
             
@@ -566,21 +578,13 @@ public DataGangguan dg = null;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String sql = "update pengaduan set kd_lapor=?,tgl=?,nama_layanan=?,nama_kplarea=?,ruang=?,telepon=?,keluhan=?,nama_teknisi=?,tlp=?,status=? where kd_lapor = '"+txtKd.getText()+"'";
+        String sql = "update pengaduan set status=? where kd_lapor = '"+txtKd.getText()+"'";
           SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd");
            String fd = sdf.format(jtgl.getValue());
         try{
             PreparedStatement stat = conn.prepareStatement(sql);
-            stat.setString(1, txtKd.getText());
-            stat.setString(2, fd);
-            stat.setString(3, txtLyn.getText());
-            stat.setString(4, txtKpl.getText());
-            stat.setString(5, txtRuang.getText());
-            stat.setString(6, txtTlp.getText());
-            stat.setString(7, txtKlh.getText());
-            stat.setString(8, txtTek.getText());
-            stat.setString(9, txtTlp1.getText());
-            stat.setString(10, "Diterima");
+            
+            stat.setString(1, "Diterima");
             
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "Pekerjeaan Berhasil Dietujui");

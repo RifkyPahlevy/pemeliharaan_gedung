@@ -481,21 +481,16 @@ public DataGangguan dg = null;
 
     private void btnTmbhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTmbhActionPerformed
         // TODO add your handling code here:
-        String sql = "update pengaduan set nama_layanan=?,nama_kplarea=?,ruang=?,telepon=?,keluhan=?,nama_teknisi=?,tgl_perbaikan=?,status=? where kd_lapor = '"+txtKd.getText()+"'";
+        String sql = "update pengaduan set tgl_perbaikan=?,status=? where kd_lapor = '"+txtKd.getText()+"'";
         
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd");
            String fd = sdf.format(jtgl.getValue());
         try{
             PreparedStatement stat = conn.prepareStatement(sql);
-            stat.setString(1, txtLyn.getText());
-            stat.setString(2, txtKpl.getText());
-            stat.setString(3, txtRuang.getText());
-            stat.setString(4, txtTlp.getText());
-            stat.setString(5, txtKlh.getText());
-            stat.setString(6, txtTek.getText());
-            stat.setString(7, fd);
-            stat.setString(8, "Selesai");
+            
+            stat.setString(1, fd);
+            stat.setString(2, "Selesai");
             
             stat.executeUpdate();
              

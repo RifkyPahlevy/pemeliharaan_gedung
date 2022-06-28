@@ -29,26 +29,41 @@ private Connection conn = new Koneksi().connect();
     }
 
    protected void datatable(){
-        Object[] col ={"No-Lapor","Tanggal","Layanan","Kepala Area","Ruang","Telepon","Keluhan","Teknisi","Telepon","Tanggal Perbaikan","Status"};
+        Object[] col ={"No-Lapor","Tanggal","Layanan","Kepala Area","Ruang","Telepon","Keluhan","Tanggal Perbaikan","Status"};
             table = new DefaultTableModel(null, col);
         String cariitem = txtCari.getText();
                 try {
-         String sql  = "SELECT kd_lapor,tgl,nama_layanan,nama_kplarea,ruang,telepon,keluhan,nama_teknisi,tlp,tgl_perbaikan,status FROM pengaduan where status like '%"+"Menunggu"+"%' order by tgl asc"  ;
-        Statement stat = conn.createStatement();
+         String sql = "SELECT\n" +
+"     pengaduan.`kd_lapor` ,\n" +
+"     pengaduan.`tgl` ,\n" +
+"     pengaduan.`kd_layanan` ,\n" +
+"     pengaduan.`kd_kplarea` ,\n" +
+"     pengaduan.`keluhan` ,\n" +
+"     pengaduan.`kd_teknisi` ,\n" +
+"     pengaduan.`tgl_perbaikan` ,\n" +
+"     pengaduan.`status` ,\n" +
+"     layanan.`kd_layanan` ,\n" +
+"     layanan.`nama_layanan` ,\n" +
+"     kpl_area.`kd_kplarea`,\n" +
+"     kpl_area.`nama_kplarea`,\n" +
+"     kpl_area.`ruang` ,\n" +
+"     kpl_area.`telepon` \n" +
+"FROM\n" +
+"     `layanan` layanan INNER JOIN `pengaduan` pengaduan ON layanan.`kd_layanan` = pengaduan.`kd_layanan`\n" +
+"     INNER JOIN `kpl_area` kpl_area ON pengaduan.`kd_kplarea` = kpl_area.`kd_kplarea`;";
+                    Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
                 while (hasil.next()){
         table.addRow(new Object[]{
-            hasil.getString(1),
-            hasil.getString(2),
-            hasil.getString(3),
-            hasil.getString(4),
-            hasil.getString(5),
-            hasil.getString(6),
-            hasil.getString(7),
-            hasil.getString(8),
-            hasil.getString(9),
-            hasil.getString(10),
-            hasil.getString(11)
+            hasil.getString("kd_lapor"),
+            hasil.getString("tgl"),
+            hasil.getString("nama_layanan"),
+            hasil.getString("nama_kplarea"),
+            hasil.getString("ruang"),
+            hasil.getString("telepon"),
+            hasil.getString("keluhan"),
+            hasil.getString("tgl_perbaikan"),
+            hasil.getString("status")
             
             
             
@@ -248,7 +263,7 @@ private Connection conn = new Koneksi().connect();
         pTek.tlp = tblData.getValueAt(tabelGanggu, 5).toString();
         pTek.keluhan = tblData.getValueAt(tabelGanggu, 6).toString();
         pTek.nama = tblData.getValueAt(tabelGanggu, 7).toString();
-        pTek.tlp1 = tblData.getValueAt(tabelGanggu, 8).toString();
+        
          
         pTek.itemTerpilihTek();
         this.dispose();
