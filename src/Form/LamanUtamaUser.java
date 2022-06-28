@@ -381,7 +381,7 @@ public class LamanUtamaUser extends javax.swing.JFrame {
 
     private void progressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_progressActionPerformed
         // TODO add your handling code here:
-         LapPengaduan show = new LapPengaduan();
+       LapPengaduan show = new LapPengaduan();
         show.setVisible(true);
     }//GEN-LAST:event_progressActionPerformed
 

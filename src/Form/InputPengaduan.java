@@ -37,32 +37,57 @@ public class InputPengaduan extends javax.swing.JFrame {
      private void daftarPengaduan(){
        tabel2.getDataVector().removeAllElements();
         tabel2.fireTableDataChanged();
-       Object[] col ={"Kode Lapor","Tanggal","Nama Layanan","Nama Kepala Area","Ruang","telepon","Keluhan"};
+      Object[] col ={"No-Lapor","Tanggal","Layanan","Kepala Area","Ruang","Telepon","Keluhan","Tanggal Perbaikan","Status"};
             table = new DefaultTableModel(null, col);
-        
+       
                 try {
-         String sql  = "SELECT kd_lapor,tgl,nama_layanan,nama_kplarea,ruang,telepon,keluhan FROM pengaduan order by kd_lapor asc";
-              Statement stat = conn.createStatement();
+         String sql = "SELECT\n" +
+"     pengaduan.`kd_lapor` ,\n" +
+"     pengaduan.`tgl` ,\n" +
+"     pengaduan.`kd_layanan` ,\n" +
+"     pengaduan.`kd_kplarea` ,\n" +
+"     pengaduan.`keluhan` ,\n" +
+"     pengaduan.`kd_teknisi` ,\n" +
+"     pengaduan.`tgl_perbaikan` ,\n" +
+"     pengaduan.`status` ,\n" +
+"     layanan.`kd_layanan` ,\n" +
+"     layanan.`nama_layanan` ,\n" +
+"     kpl_area.`kd_kplarea`,\n" +
+"     kpl_area.`nama_kplarea`,\n" +
+"     kpl_area.`ruang` ,\n" +
+"     kpl_area.`telepon` \n" +
+"FROM\n" +
+"     `layanan` layanan INNER JOIN `pengaduan` pengaduan ON layanan.`kd_layanan` = pengaduan.`kd_layanan`\n" +
+"     INNER JOIN `kpl_area` kpl_area ON pengaduan.`kd_kplarea` = kpl_area.`kd_kplarea`;";
+                    Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
-         while (hasil.next()){
-          table.addRow(new Object[]{
-            hasil.getString(1),
-            hasil.getString(2),
-            hasil.getString(3),
-            hasil.getString(4),
-            hasil.getString(5),
-            hasil.getString(6),
-            hasil.getString(7)
+                while (hasil.next()){
+        table.addRow(new Object[]{
+            hasil.getString("kd_lapor"),
+            hasil.getString("tgl"),
+            hasil.getString("nama_layanan"),
+            hasil.getString("nama_kplarea"),
+            hasil.getString("ruang"),
+            hasil.getString("telepon"),
+            hasil.getString("keluhan"),
+            hasil.getString("tgl_perbaikan"),
+            hasil.getString("status")
+            
+            
+            
+            
+            
+            
             
             
     }
         );
-           }
-tableDialogSupplier.setModel(table);
-        } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "data gagal dipanggil"+e);
-        e.printStackTrace();
-    } 
+            }
+                tableDialogSupplier.setModel(table);
+    } catch (Exception e) {
+    JOptionPane.showMessageDialog(null, "data gagal dipanggil"+e);
+    e.printStackTrace();
+} 
     }
     protected void kosong(){
         txtKd.setText("");
@@ -110,7 +135,6 @@ tableDialogSupplier.setModel(table);
         dialogPengaduan = new javax.swing.JDialog();
         jScrollPane5 = new javax.swing.JScrollPane();
         tableDialogSupplier = new javax.swing.JTable();
-        btnDialogKembaliObat = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -159,24 +183,13 @@ tableDialogSupplier.setModel(table);
         });
         jScrollPane5.setViewportView(tableDialogSupplier);
 
-        btnDialogKembaliObat.setText("Kembali");
-        btnDialogKembaliObat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDialogKembaliObatActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout dialogPengaduanLayout = new javax.swing.GroupLayout(dialogPengaduan.getContentPane());
         dialogPengaduan.getContentPane().setLayout(dialogPengaduanLayout);
         dialogPengaduanLayout.setHorizontalGroup(
             dialogPengaduanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dialogPengaduanLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(dialogPengaduanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                    .addGroup(dialogPengaduanLayout.createSequentialGroup()
-                        .addComponent(btnDialogKembaliObat, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE)
                 .addContainerGap())
         );
         dialogPengaduanLayout.setVerticalGroup(
@@ -184,9 +197,7 @@ tableDialogSupplier.setModel(table);
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogPengaduanLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDialogKembaliObat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(54, 54, 54))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -579,10 +590,6 @@ tableDialogSupplier.setModel(table);
         dialogPengaduan.setVisible(false);
     }//GEN-LAST:event_tableDialogSupplierMouseClicked
 
-    private void btnDialogKembaliObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDialogKembaliObatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDialogKembaliObatActionPerformed
-
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
         try{
@@ -673,7 +680,6 @@ tableDialogSupplier.setModel(table);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDialogKembaliObat;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnHps;
     private javax.swing.JButton btnKlr;
