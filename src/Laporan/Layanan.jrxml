@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a035c3a8-5c0b-41b7-812c-45b4b6427306">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="93"/>
+	<property name="ireport.y" value="293"/>
+	<queryString>
+		<![CDATA[SELECT
+     layanan.`kd_layanan` AS layanan_kd_layanan,
+     layanan.`nama_layanan` AS layanan_nama_layanan,
+     layanan.`keterangan` AS layanan_keterangan
+FROM
+     `layanan` layanan]]>
+	</queryString>
+	<field name="layanan_kd_layanan" class="java.lang.String"/>
+	<field name="layanan_nama_layanan" class="java.lang.String"/>
+	<field name="layanan_keterangan" class="java.lang.String"/>
+	<variable name="tgl" class="java.lang.String"/>
+	<title>
+		<band height="151" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="141" width="555" height="1" uuid="c8bf6458-dc13-448e-bc21-8b28f4c6219c"/>
+				<graphicElement>
+					<pen lineWidth="5.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<image>
+				<reportElement x="106" y="60" width="311" height="51" uuid="c1f22de7-6689-4aff-a097-fa795ed8cc8a"/>
+				<imageExpression><![CDATA["C:\\Users\\rifky\\OneDrive\\Desktop\\ProjectArab\\pemeliharaan_gedung\\src\\foto\\1.PNG"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="164" y="24" width="146" height="58" uuid="3971fa19-5b7a-4d3e-9cd1-c11b52e05695"/>
+				<imageExpression><![CDATA["C:\\Users\\rifky\\OneDrive\\Desktop\\ProjectArab\\pemeliharaan_gedung\\src\\foto\\2.PNG"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="57" y="0" width="396" height="32" uuid="7c9de747-5126-423a-989a-86c31fbad97c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="16" isBold="true" isItalic="false" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[LAPORAN DATA LAYANAN]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<rectangle>
+				<reportElement x="332" y="1" width="102" height="29" backcolor="#CCCCCC" uuid="a66ae254-d0fb-4f9b-b175-4b2fbe74d247"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="194" y="1" width="138" height="29" backcolor="#CCCCCC" uuid="fce9d065-f5c4-499f-b39c-a6c581fbe0b4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="57" y="1" width="137" height="29" backcolor="#CCCCCC" uuid="f22908cd-50c3-4454-8033-0243fa899d69"/>
+			</rectangle>
+			<line>
+				<reportElement x="122" y="0" width="264" height="1" uuid="99d1862d-f361-4199-8a84-90f3c3f7fec6"/>
+			</line>
+			<staticText>
+				<reportElement x="73" y="10" width="100" height="20" uuid="6935362b-0ac7-4de1-bb47-108237333226"/>
+				<text><![CDATA[KODE LAYANAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="10" width="100" height="20" uuid="9aff3857-42e6-4504-96ce-8c5b7cdbea27"/>
+				<text><![CDATA[NAMA LAYANAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="10" width="100" height="20" uuid="6974ad31-9e3b-4fda-8ad6-da6220b5bc4f"/>
+				<text><![CDATA[KETERANGAN]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<rectangle>
+				<reportElement x="332" y="0" width="102" height="31" uuid="7e0b8046-b70c-4bbc-a16d-950d81b4663c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="194" y="0" width="138" height="31" uuid="90eee14d-c097-4384-b207-0a6e245b1619"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="57" y="0" width="137" height="31" uuid="5a88a129-4ece-4d70-b59c-cef5b12e0207"/>
+			</rectangle>
+			<textField>
+				<reportElement x="57" y="11" width="100" height="20" uuid="23348cb5-f152-4821-adb1-ab8ed6df8603"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{layanan_kd_layanan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="11" width="100" height="20" uuid="51e29cd4-056c-4d11-92fe-0870b5174191"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{layanan_nama_layanan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="11" width="100" height="20" uuid="db10a0b9-c034-4d3a-9c30-a88586b9d772"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{layanan_keterangan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="137" splitType="Stretch">
+			<staticText>
+				<reportElement x="320" y="12" width="41" height="20" uuid="145301a4-e7a3-487a-b16e-dd3c83e06c6b"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="32" width="141" height="20" uuid="78fc92e8-3df3-4bd6-b751-124c72bdc880"/>
+				<textElement verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Mengetahui,]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="361" y="12" width="100" height="20" uuid="03550d65-f68b-48d0-9919-bae101744657"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="107" width="141" height="20" uuid="5236364e-d9f5-4bb2-abee-39c6a8d03b76"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Administrasi]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

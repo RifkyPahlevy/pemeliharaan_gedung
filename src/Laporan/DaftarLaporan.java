@@ -43,16 +43,16 @@ private Connection conn = new Koneksi().connect();
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         laporanDataGangguan = new javax.swing.JButton();
-        LaporanBrgExit = new javax.swing.JButton();
         lapTeknisi = new javax.swing.JButton();
         lapKpl = new javax.swing.JButton();
         lapDataBarang = new javax.swing.JButton();
-        LaporanBrgMsk = new javax.swing.JButton();
         lapKpl1 = new javax.swing.JButton();
         lapDataSupplier = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        lapDataBarang1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,15 +60,24 @@ private Connection conn = new Koneksi().connect();
         jPanel1.setBackground(new java.awt.Color(30, 144, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("DAFTAR LAPORAN");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(185, 185, 185)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(49, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(31, 31, 31))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -77,7 +86,7 @@ private Connection conn = new Koneksi().connect();
         laporanDataGangguan.setBackground(new java.awt.Color(255, 255, 255));
         laporanDataGangguan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         laporanDataGangguan.setForeground(new java.awt.Color(51, 51, 51));
-        laporanDataGangguan.setText("LAPORAN GANGGUAN");
+        laporanDataGangguan.setText("LAPORAN PENGERJAAN");
         laporanDataGangguan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 laporanDataGangguanMouseClicked(evt);
@@ -86,21 +95,6 @@ private Connection conn = new Koneksi().connect();
         laporanDataGangguan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 laporanDataGangguanActionPerformed(evt);
-            }
-        });
-
-        LaporanBrgExit.setBackground(new java.awt.Color(255, 255, 255));
-        LaporanBrgExit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        LaporanBrgExit.setForeground(new java.awt.Color(51, 51, 51));
-        LaporanBrgExit.setText("LAPORAN PENGGUNAAN BARANG");
-        LaporanBrgExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LaporanBrgExitMouseClicked(evt);
-            }
-        });
-        LaporanBrgExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LaporanBrgExitActionPerformed(evt);
             }
         });
 
@@ -138,26 +132,16 @@ private Connection conn = new Koneksi().connect();
                 lapDataBarangMouseClicked(evt);
             }
         });
-
-        LaporanBrgMsk.setBackground(new java.awt.Color(255, 255, 255));
-        LaporanBrgMsk.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        LaporanBrgMsk.setForeground(new java.awt.Color(51, 51, 51));
-        LaporanBrgMsk.setText("LAPORAN BARANG MASUK");
-        LaporanBrgMsk.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LaporanBrgMskMouseClicked(evt);
-            }
-        });
-        LaporanBrgMsk.addActionListener(new java.awt.event.ActionListener() {
+        lapDataBarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LaporanBrgMskActionPerformed(evt);
+                lapDataBarangActionPerformed(evt);
             }
         });
 
         lapKpl1.setBackground(new java.awt.Color(255, 255, 255));
         lapKpl1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lapKpl1.setForeground(new java.awt.Color(51, 51, 51));
-        lapKpl1.setText("LAPORAN DATA SUPPLIER");
+        lapKpl1.setText("LAPORAN DATA ADMIN");
         lapKpl1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lapKpl1ActionPerformed(evt);
@@ -187,62 +171,67 @@ private Connection conn = new Koneksi().connect();
             }
         });
 
+        lapDataBarang1.setBackground(new java.awt.Color(255, 255, 255));
+        lapDataBarang1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lapDataBarang1.setForeground(new java.awt.Color(51, 51, 51));
+        lapDataBarang1.setText("LAPORAN DATA LAYANAN");
+        lapDataBarang1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lapDataBarang1MouseClicked(evt);
+            }
+        });
+        lapDataBarang1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lapDataBarang1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(laporanDataGangguan, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LaporanBrgMsk)
-                            .addComponent(lapDataBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lapDataSupplier)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(82, 82, 82)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lapTeknisi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lapKpl))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(LaporanBrgExit, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
-                                .addContainerGap())))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lapTeknisi, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lapKpl)
+                                    .addComponent(lapKpl1))
+                                .addGap(62, 62, 62)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(laporanDataGangguan, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lapDataBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lapDataBarang1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lapDataSupplier)
-                        .addGap(97, 97, 97)
-                        .addComponent(lapKpl1)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(206, 206, 206)
-                .addComponent(jButton1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(206, 206, 206)
+                        .addComponent(jButton1)))
+                .addGap(0, 62, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(84, 84, 84)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(LaporanBrgExit)
+                        .addComponent(lapDataBarang)
+                        .addGap(18, 18, 18)
+                        .addComponent(laporanDataGangguan)
+                        .addGap(18, 18, 18)
+                        .addComponent(lapDataBarang1)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(lapKpl1)
                         .addGap(18, 18, 18)
                         .addComponent(lapTeknisi)
-                        .addGap(18, 18, 18)
-                        .addComponent(lapKpl))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(laporanDataGangguan)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(LaporanBrgMsk)
-                        .addGap(18, 18, 18)
-                        .addComponent(lapDataBarang)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lapDataSupplier)
-                    .addComponent(lapKpl1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(lapKpl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)))
+                .addComponent(lapDataSupplier)
                 .addGap(27, 27, 27)
                 .addComponent(jButton1)
                 .addContainerGap())
@@ -290,21 +279,6 @@ private Connection conn = new Koneksi().connect();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LaporanBrgExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaporanBrgExitMouseClicked
-        // TODO add your handling code here:
-        try {
-            String NamaFile = "/Laporan/barangkeluar.jasper"; //Lokasi File jasper
-            
-            runReportDefault(NamaFile);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_LaporanBrgExitMouseClicked
-
-    private void LaporanBrgExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaporanBrgExitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LaporanBrgExitActionPerformed
-
     private void lapTeknisiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lapTeknisiMouseClicked
         // TODO add your handling code here:
         try {
@@ -334,6 +308,13 @@ private Connection conn = new Koneksi().connect();
 
     private void lapTeknisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lapTeknisiActionPerformed
         // TODO add your handling code here:
+        try {
+            String NamaFile = "/Laporan/Teknisi.jasper"; //Lokasi File jasper
+            
+            runReportDefault(NamaFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_lapTeknisiActionPerformed
 
     private void lapDataBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lapDataBarangMouseClicked
@@ -360,23 +341,15 @@ private Connection conn = new Koneksi().connect();
 
     private void lapDataSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lapDataSupplierActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_lapDataSupplierActionPerformed
-
-    private void LaporanBrgMskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaporanBrgMskMouseClicked
-        // TODO add your handling code here:
         try {
-            String NamaFile = "/Laporan/barangmasuk.jasper"; //Lokasi File jasper
+            String NamaFile = "/Laporan/KepalaTeknisi.jasper"; //Lokasi File jasper
             
             runReportDefault(NamaFile);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }//GEN-LAST:event_LaporanBrgMskMouseClicked
-
-    private void LaporanBrgMskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaporanBrgMskActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LaporanBrgMskActionPerformed
+        
+    }//GEN-LAST:event_lapDataSupplierActionPerformed
 
     private void laporanDataGangguanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_laporanDataGangguanMouseClicked
         // TODO add your handling code here:
@@ -402,14 +375,41 @@ private Connection conn = new Koneksi().connect();
 
     private void lapKpl1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lapKpl1ActionPerformed
         // TODO add your handling code here:
-         try {
-            String NamaFile = "/Laporan/Supplier.jasper"; //Lokasi File jasper
+        try {
+            String NamaFile = "/Laporan/Admin.jasper"; //Lokasi File jasper
             
             runReportDefault(NamaFile);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
     }//GEN-LAST:event_lapKpl1ActionPerformed
+
+    private void lapDataBarang1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lapDataBarang1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lapDataBarang1MouseClicked
+
+    private void lapDataBarang1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lapDataBarang1ActionPerformed
+        // TODO add your handling code here:
+         try {
+            String NamaFile = "/Laporan/Layanan.jasper"; //Lokasi File jasper
+            
+            runReportDefault(NamaFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_lapDataBarang1ActionPerformed
+
+    private void lapDataBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lapDataBarangActionPerformed
+        // TODO add your handling code here:
+        try {
+            String NamaFile = "/Laporan/Barang.jasper"; //Lokasi File jasper
+            
+            runReportDefault(NamaFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_lapDataBarangActionPerformed
 
     /**
      * @param args the command line arguments
@@ -448,13 +448,13 @@ private Connection conn = new Koneksi().connect();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton LaporanBrgExit;
-    private javax.swing.JButton LaporanBrgMsk;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton lapDataBarang;
+    private javax.swing.JButton lapDataBarang1;
     private javax.swing.JButton lapDataSupplier;
     private javax.swing.JButton lapKpl;
     private javax.swing.JButton lapKpl1;

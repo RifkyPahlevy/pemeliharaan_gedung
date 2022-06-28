@@ -220,7 +220,7 @@ public DataGangguan dg = null;
         btnKmbl.setBackground(new java.awt.Color(255, 255, 255));
         btnKmbl.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnKmbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/logout.png"))); // NOI18N
-        btnKmbl.setText("KELUAR");
+        btnKmbl.setText("KEMBALI");
         btnKmbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKmblActionPerformed(evt);
@@ -259,9 +259,12 @@ public DataGangguan dg = null;
                                     .addComponent(txtTlp, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addComponent(txtLyn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtTek, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(btnTmbh)
-                        .addComponent(btnKmbl, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(304, 304, 304))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(btnKmbl, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(143, 143, 143)))
                 .addGap(0, 18, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -473,7 +476,7 @@ public DataGangguan dg = null;
 
     private void btnKmblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKmblActionPerformed
         // TODO add your handling code here:
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_btnKmblActionPerformed
 
     private void btnTmbhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTmbhActionPerformed

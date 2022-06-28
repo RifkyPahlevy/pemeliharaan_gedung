@@ -5,53 +5,46 @@
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[SELECT
-     k_area.`kd_area` AS k_area_kd_area,
-     k_area.`nama` AS k_area_nama,
-     k_area.`email` AS k_area_email,
-     k_area.`username` AS k_area_username,
-     k_area.`password` AS k_area_password,
-     k_area.`ruang` AS k_area_ruang,
-     k_area.`telepon` AS k_area_telepon
+     kpl_area.`kd_kplarea` AS kpl_area_kd_kplarea,
+     kpl_area.`nama_kplarea` AS kpl_area_nama_kplarea,
+     kpl_area.`email` AS kpl_area_email,
+     kpl_area.`username` AS kpl_area_username,
+     kpl_area.`ruang` AS kpl_area_ruang,
+     kpl_area.`telepon` AS kpl_area_telepon
 FROM
-     `k_area` k_area]]>
+     `kpl_area` kpl_area]]>
 	</queryString>
-	<field name="k_area_kd_area" class="java.lang.String"/>
-	<field name="k_area_nama" class="java.lang.String"/>
-	<field name="k_area_email" class="java.lang.String"/>
-	<field name="k_area_username" class="java.lang.String"/>
-	<field name="k_area_password" class="java.lang.String"/>
-	<field name="k_area_ruang" class="java.lang.String"/>
-	<field name="k_area_telepon" class="java.lang.String"/>
+	<field name="kpl_area_kd_kplarea" class="java.lang.String"/>
+	<field name="kpl_area_nama_kplarea" class="java.lang.String"/>
+	<field name="kpl_area_email" class="java.lang.String"/>
+	<field name="kpl_area_username" class="java.lang.String"/>
+	<field name="kpl_area_ruang" class="java.lang.String"/>
+	<field name="kpl_area_telepon" class="java.lang.String"/>
+	<variable name="Date" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="13" splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band height="90" splitType="Stretch">
+		<band height="133" splitType="Stretch">
+			<image>
+				<reportElement x="166" y="57" width="311" height="51" uuid="2a2494cb-9f74-4d76-8174-211482e79656"/>
+				<imageExpression><![CDATA["C:\\Users\\rifky\\OneDrive\\Desktop\\ProjectArab\\pemeliharaan_gedung\\src\\foto\\1.PNG"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="224" y="21" width="146" height="58" uuid="152445b1-5073-4fa9-86a9-0cb6a20b4e55"/>
+				<imageExpression><![CDATA["C:\\Users\\rifky\\OneDrive\\Desktop\\ProjectArab\\pemeliharaan_gedung\\src\\foto\\2.PNG"]]></imageExpression>
+			</image>
 			<staticText>
-				<reportElement x="212" y="0" width="190" height="20" uuid="a39af327-0405-40b1-8e06-5f480b5ff7ff"/>
+				<reportElement x="196" y="108" width="190" height="20" uuid="a39af327-0405-40b1-8e06-5f480b5ff7ff"/>
 				<textElement textAlignment="Justified">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Laporan Data Kepala Area]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="224" y="59" width="154" height="20" uuid="770d6b60-9895-49d1-a998-fb05f3283b40"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Telepon : (021) 85906142]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="19" y="39" width="526" height="20" uuid="1525f5d3-825f-4a95-b83b-9df5e83924ce"/>
-				<textElement textAlignment="Justified">
-					<font size="12" isBold="false" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[Jl. Otto Iskandardinata No.390, RT.5/RW.12, Bidara Cina, Kecamatan Jatinegara, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13330]]></text>
-			</staticText>
 		</band>
+	</title>
+	<pageHeader>
+		<band height="11" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
 		<band height="41" splitType="Stretch">
@@ -101,29 +94,24 @@ FROM
 	<detail>
 		<band height="26" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="76" height="20" uuid="4ec94d99-af36-436b-bbcc-a8511e936d6c"/>
-				<textElement textAlignment="Justified"/>
-				<textFieldExpression><![CDATA[$F{k_area_kd_area}]]></textFieldExpression>
+				<reportElement x="24" y="6" width="100" height="20" uuid="c1544d91-c8c3-4e44-96c3-9be89ad7960f"/>
+				<textFieldExpression><![CDATA[$F{kpl_area_kd_kplarea}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="95" y="0" width="75" height="20" uuid="5fbb540b-72cc-4020-93ff-7ea4a65a56ed"/>
-				<textElement textAlignment="Justified"/>
-				<textFieldExpression><![CDATA[$F{k_area_nama}]]></textFieldExpression>
+				<reportElement x="106" y="6" width="100" height="20" uuid="e251ef2c-e372-44f4-89a5-c12fce81d1a8"/>
+				<textFieldExpression><![CDATA[$F{kpl_area_nama_kplarea}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="196" y="0" width="87" height="20" uuid="11856dd8-ad8b-424b-8058-cde11b937126"/>
-				<textElement textAlignment="Justified"/>
-				<textFieldExpression><![CDATA[$F{k_area_email}]]></textFieldExpression>
+				<reportElement x="196" y="6" width="100" height="20" uuid="475d2ed7-fb96-410f-8db0-7defe9b361be"/>
+				<textFieldExpression><![CDATA[$F{kpl_area_email}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="309" y="0" width="76" height="20" uuid="98bc73a6-904c-452d-9f34-ae91d83859b7"/>
-				<textElement textAlignment="Justified"/>
-				<textFieldExpression><![CDATA[$F{k_area_ruang}]]></textFieldExpression>
+				<reportElement x="309" y="6" width="100" height="20" uuid="fe13e92d-ee09-40b3-bbb7-4c43ceb47385"/>
+				<textFieldExpression><![CDATA[$F{kpl_area_ruang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="419" y="0" width="76" height="20" uuid="ff858d81-e74a-4123-937b-2aac29aa43e0"/>
-				<textElement textAlignment="Justified"/>
-				<textFieldExpression><![CDATA[$F{k_area_telepon}]]></textFieldExpression>
+				<reportElement x="424" y="6" width="100" height="20" uuid="94a2541a-9576-4015-8da1-2aeb5c6a6c37"/>
+				<textFieldExpression><![CDATA[$F{kpl_area_telepon}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -131,9 +119,18 @@ FROM
 		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="17" splitType="Stretch"/>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="363" y="0" width="39" height="20" uuid="a110e81c-69d7-4ef1-ac6b-012647364119"/>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="411" y="0" width="144" height="20" uuid="393025e6-0cec-40c9-89c9-85dbe0585a28"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
-		<band height="13" splitType="Stretch"/>
+		<band height="11" splitType="Stretch"/>
 	</summary>
 </jasperReport>

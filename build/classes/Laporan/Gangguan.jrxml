@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5e3bff6c-7bff-4d88-a482-8241166b1657">
 	<property name="ireport.zoom" value="1.6105100000000154"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="497"/>
+	<property name="ireport.y" value="233"/>
 	<queryString>
 		<![CDATA[SELECT
      pengaduan.`kd_lapor` AS pengaduan_kd_lapor,
@@ -32,33 +32,20 @@ FROM
 	<field name="pengaduan_status" class="java.lang.String"/>
 	<title>
 		<band height="159" splitType="Stretch">
-			<staticText>
-				<reportElement x="0" y="118" width="802" height="20" uuid="0af6f192-2faf-4f52-995e-4b2f1fc3ef46"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Telp. (021) 85906142]]></text>
-			</staticText>
 			<line>
 				<reportElement x="10" y="148" width="775" height="1" uuid="71a09023-f080-4aaa-ab22-251f44296272"/>
 				<graphicElement>
 					<pen lineWidth="5.0" lineStyle="Double"/>
 				</graphicElement>
 			</line>
-			<staticText>
-				<reportElement x="0" y="98" width="802" height="20" uuid="23855060-2a23-4410-b6a0-38a5c447170f"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="14" isBold="true" isItalic="false"/>
-				</textElement>
-				<text><![CDATA[Jakarta Timur, 13330]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="78" width="802" height="20" uuid="16ae0b2b-d59a-4532-bbd4-c7620f7b53a5"/>
-				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="14" isBold="true" isItalic="false"/>
-				</textElement>
-				<text><![CDATA[Jl. Otto Iskandardinata No.390, RT.5/RW.12, Bidara Cina, Kecamatan Jatinegara]]></text>
-			</staticText>
+			<image>
+				<reportElement x="278" y="58" width="311" height="51" uuid="7378ec5a-2091-4774-b0eb-f61e078c12df"/>
+				<imageExpression><![CDATA["C:\\Users\\rifky\\OneDrive\\Desktop\\ProjectArab\\pemeliharaan_gedung\\src\\foto\\1.PNG"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="336" y="22" width="146" height="58" uuid="6a725aa6-5696-42e8-9e4b-6d361c7f58bc"/>
+				<imageExpression><![CDATA["C:\\Users\\rifky\\OneDrive\\Desktop\\ProjectArab\\pemeliharaan_gedung\\src\\foto\\2.PNG"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -222,7 +209,7 @@ FROM
 				<reportElement x="634" y="17" width="41" height="20" uuid="5e2b76a1-2767-4621-8f7b-5b8afd79104b"/>
 				<text><![CDATA[Jakarta, ]]></text>
 			</staticText>
-			<textField pattern="dd/MM/yyyy">
+			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement x="678" y="17" width="100" height="20" uuid="92de2c85-0ad2-464e-bdf0-e6fbbaf1495b"/>
 				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
 			</textField>

@@ -346,7 +346,7 @@ tableDialogSupplier.setModel(table);
         btnKembali.setBackground(new java.awt.Color(255, 255, 255));
         btnKembali.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnKembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/logout.png"))); // NOI18N
-        btnKembali.setText("KELUAR");
+        btnKembali.setText("KEMBALI");
         btnKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKembaliActionPerformed(evt);
@@ -408,7 +408,9 @@ tableDialogSupplier.setModel(table);
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnBtl))
-                    .addComponent(btnKembali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(btnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(22, 22, 22))
         );
         jPanel5Layout.setVerticalGroup(
@@ -619,9 +621,10 @@ tableDialogSupplier.setModel(table);
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
         // TODO add your handling code here:
        
-        new LamanUtama().setVisible(true);
+        
        
         this.dispose();
+            new Login().setVisible(true);
         
     }//GEN-LAST:event_btnKembaliActionPerformed
 

@@ -65,11 +65,11 @@ public class Barang extends javax.swing.JFrame {
         }
     }
      protected void datatable(){
-        Object[] col ={"Kode Barang","Nama Barang","Jenis Barang","Stok","Satuan","Keterangan"};
+        Object[] col ={"Kode Barang","Nama Barang","Jenis Barang","Stok","Satuan"};
             table = new DefaultTableModel(null, col);
         String cariitem = txtCari.getText();
                 try {
-         String sql  = "SELECT * FROM barang where kd_barang like '%"+cariitem+"%' or nama_barang like '%"+cariitem+"%' order by kd_barang asc";
+         String sql  = "SELECT kd_barang,nama_barang,jenis,stok,satuan FROM barang where kd_barang like '%"+cariitem+"%' or nama_barang like '%"+cariitem+"%' order by kd_barang asc";
               Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
          while (hasil.next()){
@@ -78,8 +78,7 @@ public class Barang extends javax.swing.JFrame {
             hasil.getString(2),
             hasil.getString(3),
             hasil.getString(4),
-            hasil.getString(5),
-            hasil.getString(6)
+            hasil.getString(5)
             
     }
         );
@@ -128,7 +127,7 @@ tblBrg.setModel(table);
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("D A T A   B A R A N G   M A S U K");
+        jLabel8.setText("D A T A   B A R A N G   ");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -263,7 +262,7 @@ tblBrg.setModel(table);
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/logout.png"))); // NOI18N
-        btnBack.setText("KELUAR");
+        btnBack.setText("KEMBALI");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -298,20 +297,17 @@ tblBrg.setModel(table);
                                 .addGap(93, 93, 93)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtStok, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(76, 76, 76))
+                                    .addComponent(txtSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBtl)
                         .addGap(20, 20, 20)
                         .addComponent(btnEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnHapus)))
                 .addGap(0, 9, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,14 +332,13 @@ tblBrg.setModel(table);
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEdit)
                     .addComponent(btnBtl)
-                    .addComponent(btnHapus))
-                .addGap(50, 50, 50)
-                .addComponent(btnBack)
-                .addContainerGap())
+                    .addComponent(btnHapus)
+                    .addComponent(btnBack))
+                .addGap(107, 107, 107))
         );
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -542,7 +537,7 @@ tblBrg.setModel(table);
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
        this.dispose();
-        new LamanUtama().setVisible(true);
+       
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void txtCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariActionPerformed

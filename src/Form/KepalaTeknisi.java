@@ -378,7 +378,7 @@ protected void autonumber(){
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/logout.png"))); // NOI18N
-        jButton1.setText("KELUAR");
+        jButton1.setText("KEMBALI");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -477,10 +477,10 @@ protected void autonumber(){
                     .addComponent(btnTambah)
                     .addComponent(btnEdit)
                     .addComponent(btnHps))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -638,8 +638,7 @@ protected void autonumber(){
             JOptionPane.showMessageDialog(null, "data berhasil didaftarkan\nSilahkan login kembali");
             kosong();
             txtId.requestFocus();
-            this.dispose();
-            new Login().setVisible(true);
+            
         }
         catch (SQLException e){
             JOptionPane.showMessageDialog(null, "data gagal didaftarkan"+e);
@@ -662,8 +661,9 @@ protected void autonumber(){
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new LamanUtama().setVisible(true);
+       
         this.dispose();
+            new Login().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed

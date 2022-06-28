@@ -628,7 +628,7 @@ tableDialogSupplier.setModel(table);
         btnKbl.setBackground(new java.awt.Color(255, 255, 255));
         btnKbl.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnKbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/logout.png"))); // NOI18N
-        btnKbl.setText("KELUAR");
+        btnKbl.setText("KEMBALI");
         btnKbl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKblActionPerformed(evt);

@@ -352,7 +352,7 @@ tableDialogSupplier.setModel(table);
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/logout.png"))); // NOI18N
-        btnBack.setText("KELUAR");
+        btnBack.setText("KEMBALI");
         btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnBackMouseClicked(evt);
@@ -423,8 +423,8 @@ tableDialogSupplier.setModel(table);
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(jButton1)))
+                        .addGap(41, 41, 41)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -470,7 +470,7 @@ tableDialogSupplier.setModel(table);
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
 
@@ -524,8 +524,9 @@ tableDialogSupplier.setModel(table);
     
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        new LamanUtama().setVisible(true);
-        this.dispose();
+        
+         this.dispose();
+            new Login().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnBtlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBtlActionPerformed
@@ -623,8 +624,7 @@ tableDialogSupplier.setModel(table);
             JOptionPane.showMessageDialog(null, "data berhasil didaftarkan\nSilahkan login kembali");
             kosong();
             txtKd.requestFocus();
-            this.dispose();
-            new Login().setVisible(true);
+           
         }
         catch (SQLException e){
             JOptionPane.showMessageDialog(null, "data gagal ditambah"+e);
