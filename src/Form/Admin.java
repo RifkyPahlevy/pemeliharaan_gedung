@@ -596,8 +596,7 @@ tableDialogSupplier.setModel(table);
        
         
         autonumber();
-        this.dispose();
-        new Login().setVisible(true);
+        
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed

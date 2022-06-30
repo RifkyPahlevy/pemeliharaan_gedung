@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2022 at 03:13 PM
+-- Generation Time: Jun 30, 2022 at 02:59 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -42,9 +42,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`kd_admin`, `nama_admin`, `email`, `username`, `keterangan`, `telepon`, `password`) VALUES
-('AD0001', 'Akmal', 'akmal', 'akmal', 'admin', 'Admin Gudang', '2334'),
-('AD0002', 'akks', 'mkskl', 'mdms', 'mdsm', 'Admin Gudang', 'mkmsmsd'),
-('AD0003', 'adam', 'adam@', 'adam', 'Admin Gudang', '244', 'admin');
+('AD0001', 'Akmal', 'akmal@gmail.com', 'akmal', 'Admin Gudang', '0212334', 'admin');
 
 -- --------------------------------------------------------
 
@@ -67,7 +65,7 @@ CREATE TABLE `barang` (
 
 INSERT INTO `barang` (`kd_barang`, `nama_barang`, `jenis`, `stok`, `satuan`, `kd_admin`) VALUES
 ('KB0001', 'Bohlam', 'Kelistrikan', '78', 'pcs', '0'),
-('KB0002', 'Komputer', 'IT', '68', 'Komponen', '0'),
+('KB0002', 'Komputer', 'IT', '66', 'Komponen', '0'),
 ('KB0003', 'Kabel', 'Kelistrikan', '91', 'm', '0'),
 ('KB0004', 'Kabel Lan', 'IT', '94', 'm', '0'),
 ('KB0005', 'RJ-45', 'IT', '25', 'pcs', '0');
@@ -79,7 +77,6 @@ INSERT INTO `barang` (`kd_barang`, `nama_barang`, `jenis`, `stok`, `satuan`, `kd
 --
 
 CREATE TABLE `barang_keluar` (
-  `id` int(11) NOT NULL,
   `kd_lapor` varchar(50) NOT NULL,
   `kd_barang` varchar(50) NOT NULL,
   `nama_barang` varchar(50) NOT NULL,
@@ -91,11 +88,8 @@ CREATE TABLE `barang_keluar` (
 -- Dumping data for table `barang_keluar`
 --
 
-INSERT INTO `barang_keluar` (`id`, `kd_lapor`, `kd_barang`, `nama_barang`, `stok`, `satuan`) VALUES
-(14, 'LP0001', 'KB0001', 'Bohlam', 1, 'pcs'),
-(15, 'LP0002', 'KB0001', 'Bohlam', 1, 'pcs'),
-(16, 'LP0002', 'KB0003', 'Kabel', 2, 'm'),
-(17, 'LP0004', 'KB0004', 'Kabel Lan', 1, 'm');
+INSERT INTO `barang_keluar` (`kd_lapor`, `kd_barang`, `nama_barang`, `stok`, `satuan`) VALUES
+('LP0001', 'KB0002', 'Komputer', 1, 'Komponen');
 
 --
 -- Triggers `barang_keluar`
@@ -115,7 +109,6 @@ DELIMITER ;
 --
 
 CREATE TABLE `barang_masuk` (
-  `id` int(11) NOT NULL,
   `kd_spr` varchar(50) NOT NULL,
   `tgl_brg` varchar(50) NOT NULL,
   `kd_barang` varchar(50) NOT NULL,
@@ -129,9 +122,9 @@ CREATE TABLE `barang_masuk` (
 -- Dumping data for table `barang_masuk`
 --
 
-INSERT INTO `barang_masuk` (`id`, `kd_spr`, `tgl_brg`, `kd_barang`, `nama_barang`, `stok`, `satuan`, `jenis`) VALUES
-(35, 'SP0002', '2022-06-24', 'KB0004', 'Kabel Lan', 1, 'm', 'IT'),
-(36, 'SP0002', '2022-06-24', 'KB0001', 'Bohlam', 1, 'pcs', 'Kelistrikan');
+INSERT INTO `barang_masuk` (`kd_spr`, `tgl_brg`, `kd_barang`, `nama_barang`, `stok`, `satuan`, `jenis`) VALUES
+('SP0002', '2022-06-24', 'KB0004', 'Kabel Lan', 1, 'm', 'IT'),
+('SP0002', '2022-06-24', 'KB0001', 'Bohlam', 1, 'pcs', 'Kelistrikan');
 
 --
 -- Triggers `barang_masuk`
@@ -240,10 +233,7 @@ CREATE TABLE `pengaduan` (
 --
 
 INSERT INTO `pengaduan` (`kd_lapor`, `tgl`, `kd_layanan`, `kd_kplarea`, `keluhan`, `kd_teknisi`, `tgl_perbaikan`, `status`) VALUES
-('LP0001', '2022-06-28', 'KL0001', 'KA0001', 'Listrik Mati', 'KT0001', '2022-06-28', 'Diterima'),
-('LP0002', '2022-06-28', 'KL0001', 'KA0001', 'Listrik Mati', 'KT0001', '2022-06-28', 'Selesai'),
-('LP0003', '2022-06-28', 'KL0002', 'KA0001', 'ddee', 'KT0001', '2022-06-28', 'Proses'),
-('LP0004', '2022-06-28', 'KL0003', 'KA0001', 'sdds', 'KT0001', '2022-06-29', 'Diterima');
+('LP0001', '2022-06-30', 'KL0002', 'KA0001', 'Air mati', 'KT0001', '2022-06-30', 'Diterima');
 
 -- --------------------------------------------------------
 
@@ -309,9 +299,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama`, `username`, `password`, `level`, `telepon`) VALUES
-('AD0001', 'Akmal', 'akmal', 'admin', 'Admin', '2334'),
-('AD0002', 'akks', 'mdms', 'mdsm', 'Admin', 'mkmsmsd'),
-('AD0003', 'adam', 'adam', 'admin', 'Admin', '244'),
+('AD0001', 'Akmal', 'akmal', 'admin', 'Admin', '0212334'),
 ('KA0001', 'rizky', 'rizky', 'area', 'Area', '12345'),
 ('KP0001', 'ismi', 'ismi', 'kepala', 'Kepala Teknisi', '02212'),
 ('KT0001', 'muflih', 'muflih', 'teknisi', 'Teknisi', '09994');
@@ -338,7 +326,6 @@ ALTER TABLE `barang`
 -- Indexes for table `barang_keluar`
 --
 ALTER TABLE `barang_keluar`
-  ADD PRIMARY KEY (`id`),
   ADD KEY `kd_lapor` (`kd_lapor`),
   ADD KEY `kd_barang` (`kd_barang`);
 
@@ -346,7 +333,6 @@ ALTER TABLE `barang_keluar`
 -- Indexes for table `barang_masuk`
 --
 ALTER TABLE `barang_masuk`
-  ADD PRIMARY KEY (`id`),
   ADD KEY `kd_spr` (`kd_spr`),
   ADD KEY `kd_barang` (`kd_barang`);
 
@@ -398,22 +384,6 @@ ALTER TABLE `user`
   ADD KEY `id` (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `barang_keluar`
---
-ALTER TABLE `barang_keluar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT for table `barang_masuk`
---
-ALTER TABLE `barang_masuk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
-
---
 -- Constraints for dumped tables
 --
 
@@ -423,12 +393,6 @@ ALTER TABLE `barang_masuk`
 ALTER TABLE `barang_keluar`
   ADD CONSTRAINT `barang_keluar_ibfk_2` FOREIGN KEY (`kd_barang`) REFERENCES `barang` (`kd_barang`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `barang_keluar_ibfk_3` FOREIGN KEY (`kd_lapor`) REFERENCES `pengaduan` (`kd_lapor`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `layanan`
---
-ALTER TABLE `layanan`
-  ADD CONSTRAINT `layanan_ibfk_1` FOREIGN KEY (`kd_admin`) REFERENCES `admin` (`kd_admin`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pengaduan`

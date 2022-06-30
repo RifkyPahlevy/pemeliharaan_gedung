@@ -156,7 +156,7 @@ FROM
 			</staticText>
 			<staticText>
 				<reportElement x="634" y="120" width="144" height="20" uuid="8f7ba76a-bdb9-4c68-b686-c19a241904c8"/>
-				<text><![CDATA[Kepala Teknisi]]></text>
+				<text><![CDATA[Kepala Area]]></text>
 			</staticText>
 		</band>
 	</summary>

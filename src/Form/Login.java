@@ -284,111 +284,44 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void txtPswrdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPswrdActionPerformed
-        // TODO add your handling code here:
-//         LamanUtama utama = new LamanUtama();
-//        try {
-//            String sql = "SELECT * FROM user where username = '"+txtUser.getText()+"' and password = '"+txtPswrd.getText()+"'";
-//            Statement stat = conn.createStatement();
-//                ResultSet hasil = stat.executeQuery(sql);
-//         
-//            if(hasil.next()){
-//                utama.kodeLabel.setText(hasil.getString(1));
-//              utama.namaLabel.setText(hasil.getString(2));
-//
-//                       utama.statusLabel.setText(hasil.getString(5));
-//
-//                
-//                if(hasil.getString("level").equals("Admin")){
-//                    JOptionPane.showMessageDialog(null, "Berhasil Login");
-//                this.setVisible(false);
-//                    
-//                    
-//                   utama.setVisible(true);
-//                    utama.lapPengaduan.setEnabled(false);
-//                    utama.daftarKerja.setEnabled(false);
-//                    
-//                    utama.dataGangguan.setEnabled(false);
-//                    utama.setuju.setEnabled(false);
-//                    utama.progress.setEnabled(false);
-//                    
-//                    
-//                    this.dispose();
-//                }else if(hasil.getString("level").equals("Kepala Teknisi")){
-//                    JOptionPane.showMessageDialog(null, "Berhasil Login");
-//                this.setVisible(false);
-//                    
-//                    utama.setVisible(true);
-//                    utama.brg.setEnabled(false);
-//                    
-//                    utama.layanan.setEnabled(false);
-//                    
-//                 
-//                    utama.terimaBrg.setEnabled(false);
-//                    utama.lapPengaduan.setEnabled(false);
-//                    utama.dataGangguan.setEnabled(true);
-//                       
-//                   
-//                    utama.laporan.setEnabled(false);
-////                    
-////                    
-//             
-//                    
-//                    this.dispose();
-//                }
-//            
-//                else if(hasil.getString("level").equals("Teknisi")){
-//                    JOptionPane.showMessageDialog(null, "Berhasil Login");
-//                this.setVisible(false);
-//                    
-//                    utama.setVisible(true);
-//                    utama.brg.setEnabled(false);
-//                    
-//                    utama.layanan.setEnabled(false);
-//                    
-//                   
-//                    utama.dataGangguan.setEnabled(false);
-//                    utama.terimaBrg.setEnabled(false);
-//                    
-//                    utama.lapPengaduan.setEnabled(false);
-//
-//                   
-//                    utama.laporan.setEnabled(false);
-//                   
-//             
-//                    
-//                    this.dispose();
-//                }
-//                
-//                else if(hasil.getString("level").equals("Area")){
-//                    JOptionPane.showMessageDialog(null, "Berhasil Login");
-//                this.setVisible(false);
-//                    
-//                    utama.setVisible(true);
-//                    
-//                    utama.brg.setEnabled(false);
-//                    utama.layanan.setEnabled(false);
-//                    
-//                    utama.daftarKerja.setEnabled(false);
-//                    utama.terimaBrg.setEnabled(false);
-//                    utama.setuju.setEnabled(false);
-//                    
-//                    utama.laporan.setEnabled(false);
-//                    utama.dataGangguan.setEnabled(false);
-//                    
-//                    
-//                
-//                }
-//                
-//            }
-//            else{
-//                JOptionPane.showMessageDialog(null, "Maaf password atau username anda salah");
-//                txtUser.setText("");
-//                txtPswrd.setText("");
-//                txtUser.requestFocus();
-//            }
-//        }catch(SQLException e){
-//            JOptionPane.showMessageDialog(null, e);
-//        }
+       try {
+            String sql = "SELECT * FROM user where username = '"+txtUser.getText()+"' and password = '"+txtPswrd.getText()+"'";
+            Statement stat = conn.createStatement();
+                ResultSet hasil = stat.executeQuery(sql);
+         
+            if(hasil.next()){
+              
+                
+                if(hasil.getString("level").equals("Admin")){
+                    JOptionPane.showMessageDialog(null, "Berhasil Login");
+                    LamanUtama utama = new LamanUtama();
+                      utama.kodeLabel.setText(hasil.getString(1));
+              utama.namaLabel.setText(hasil.getString(2));
+                       utama.statusLabel.setText(hasil.getString(5));
+                       utama.setVisible(true);
+                this.dispose();
+                    this.dispose();
+                }else {
+                    JOptionPane.showMessageDialog(null, "Berhasil Login");
+                    LamanUtamaUser utama = new LamanUtamaUser(hasil.getString(5));
+                    utama.kodeLabel.setText(hasil.getString(1));
+              utama.namaLabel.setText(hasil.getString(2));
+
+                       
+                       utama.setVisible(true);
+                       this.dispose();
+                }
+                
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Maaf password atau username anda salah");
+                txtUser.setText("");
+                txtPswrd.setText("");
+                txtUser.requestFocus();
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_txtPswrdActionPerformed
 
     /**

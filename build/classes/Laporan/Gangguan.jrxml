@@ -1,35 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5e3bff6c-7bff-4d88-a482-8241166b1657">
 	<property name="ireport.zoom" value="1.6105100000000154"/>
-	<property name="ireport.x" value="497"/>
-	<property name="ireport.y" value="233"/>
+	<property name="ireport.x" value="528"/>
+	<property name="ireport.y" value="232"/>
 	<queryString>
 		<![CDATA[SELECT
      pengaduan.`kd_lapor` AS pengaduan_kd_lapor,
      pengaduan.`tgl` AS pengaduan_tgl,
-     pengaduan.`nama_layanan` AS pengaduan_nama_layanan,
-     pengaduan.`nama_kplarea` AS pengaduan_nama_kplarea,
-     pengaduan.`ruang` AS pengaduan_ruang,
-     pengaduan.`telepon` AS pengaduan_telepon,
+     pengaduan.`kd_layanan` AS pengaduan_kd_layanan,
+     pengaduan.`kd_kplarea` AS pengaduan_kd_kplarea,
      pengaduan.`keluhan` AS pengaduan_keluhan,
-     pengaduan.`nama_teknisi` AS pengaduan_nama_teknisi,
-     pengaduan.`tlp` AS pengaduan_tlp,
+     pengaduan.`kd_teknisi` AS pengaduan_kd_teknisi,
      pengaduan.`tgl_perbaikan` AS pengaduan_tgl_perbaikan,
-     pengaduan.`status` AS pengaduan_status
+     pengaduan.`status` AS pengaduan_status,
+     teknisi.`kd_teknisi` AS teknisi_kd_teknisi,
+     teknisi.`nama_teknisi` AS teknisi_nama_teknisi,
+     teknisi.`telepon` AS teknisi_telepon,
+     kpl_area.`kd_kplarea` AS kpl_area_kd_kplarea,
+     kpl_area.`nama_kplarea` AS kpl_area_nama_kplarea,
+     kpl_area.`username` AS kpl_area_username,
+     kpl_area.`ruang` AS kpl_area_ruang,
+     layanan.`kd_layanan` AS layanan_kd_layanan,
+     layanan.`nama_layanan` AS layanan_nama_layanan
 FROM
-     `pengaduan` pengaduan]]>
+     `teknisi` teknisi INNER JOIN `pengaduan` pengaduan ON teknisi.`kd_teknisi` = pengaduan.`kd_teknisi`
+     INNER JOIN `kpl_area` kpl_area ON pengaduan.`kd_kplarea` = kpl_area.`kd_kplarea`
+     INNER JOIN `layanan` layanan ON pengaduan.`kd_layanan` = layanan.`kd_layanan`]]>
 	</queryString>
 	<field name="pengaduan_kd_lapor" class="java.lang.String"/>
 	<field name="pengaduan_tgl" class="java.lang.String"/>
-	<field name="pengaduan_nama_layanan" class="java.lang.String"/>
-	<field name="pengaduan_nama_kplarea" class="java.lang.String"/>
-	<field name="pengaduan_ruang" class="java.lang.String"/>
-	<field name="pengaduan_telepon" class="java.lang.String"/>
+	<field name="pengaduan_kd_layanan" class="java.lang.String"/>
+	<field name="pengaduan_kd_kplarea" class="java.lang.String"/>
 	<field name="pengaduan_keluhan" class="java.lang.String"/>
-	<field name="pengaduan_nama_teknisi" class="java.lang.String"/>
-	<field name="pengaduan_tlp" class="java.lang.String"/>
+	<field name="pengaduan_kd_teknisi" class="java.lang.String"/>
 	<field name="pengaduan_tgl_perbaikan" class="java.lang.String"/>
 	<field name="pengaduan_status" class="java.lang.String"/>
+	<field name="teknisi_kd_teknisi" class="java.lang.String"/>
+	<field name="teknisi_nama_teknisi" class="java.lang.String"/>
+	<field name="teknisi_telepon" class="java.lang.String"/>
+	<field name="kpl_area_kd_kplarea" class="java.lang.String"/>
+	<field name="kpl_area_nama_kplarea" class="java.lang.String"/>
+	<field name="kpl_area_username" class="java.lang.String"/>
+	<field name="kpl_area_ruang" class="java.lang.String"/>
+	<field name="layanan_kd_layanan" class="java.lang.String"/>
+	<field name="layanan_nama_layanan" class="java.lang.String"/>
 	<title>
 		<band height="159" splitType="Stretch">
 			<line>
@@ -170,35 +184,35 @@ FROM
 				<reportElement x="675" y="-1" width="110" height="21" uuid="29e00b53-e0ca-461f-b28b-aa7cdebd6f99"/>
 			</rectangle>
 			<textField>
-				<reportElement x="45" y="1" width="100" height="20" uuid="93c15bfb-2632-498d-a09f-e0571fadf126"/>
+				<reportElement x="19" y="1" width="100" height="20" uuid="680d93ab-c2ca-4418-9e31-e3559e081e89"/>
 				<textFieldExpression><![CDATA[$F{pengaduan_kd_lapor}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="96" y="1" width="100" height="20" uuid="c158da20-4fd3-40bb-8d98-00e0c9809153"/>
+				<reportElement x="100" y="1" width="100" height="20" uuid="32283f3e-7faf-44b5-82f5-521d61099589"/>
 				<textFieldExpression><![CDATA[$F{pengaduan_tgl}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="196" y="1" width="68" height="20" uuid="a1e25ef9-03e5-4c02-87b0-adb6b790617d"/>
-				<textFieldExpression><![CDATA[$F{pengaduan_nama_layanan}]]></textFieldExpression>
+				<reportElement x="202" y="1" width="100" height="20" uuid="fd3a9d07-b8fd-4c35-a9f3-6a719f7bcc69"/>
+				<textFieldExpression><![CDATA[$F{layanan_nama_layanan}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="276" y="1" width="100" height="20" uuid="434a7ce1-8f75-4474-89ca-23a1e743e813"/>
-				<textFieldExpression><![CDATA[$F{pengaduan_nama_kplarea}]]></textFieldExpression>
+				<reportElement x="271" y="1" width="100" height="20" uuid="1ecdd73e-91eb-43d4-b8c0-ffc89f7f1a97"/>
+				<textFieldExpression><![CDATA[$F{kpl_area_nama_kplarea}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="364" y="0" width="67" height="20" uuid="a650b2d7-ff04-412b-8fc9-04fdcf79b9e9"/>
-				<textFieldExpression><![CDATA[$F{pengaduan_ruang}]]></textFieldExpression>
+				<reportElement x="371" y="1" width="100" height="20" uuid="3a6508d8-49bc-4500-968d-0a8f684fcc75"/>
+				<textFieldExpression><![CDATA[$F{kpl_area_ruang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="435" y="1" width="100" height="20" uuid="9e212834-cbcf-4346-ac49-98d35bf99f83"/>
-				<textFieldExpression><![CDATA[$F{pengaduan_nama_teknisi}]]></textFieldExpression>
+				<reportElement x="438" y="1" width="100" height="20" uuid="8b532b75-2aa5-4eab-8692-e18bdaa47edf"/>
+				<textFieldExpression><![CDATA[$F{teknisi_nama_teknisi}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="531" y="1" width="100" height="20" uuid="b4adb24c-f40c-4ad6-8d6e-f734785c69c4"/>
+				<reportElement x="535" y="1" width="100" height="20" uuid="ec29dd3d-86a4-44ac-a628-f7db00754a5b"/>
 				<textFieldExpression><![CDATA[$F{pengaduan_tgl_perbaikan}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="683" y="1" width="100" height="20" uuid="abb66446-25bc-4ee3-95fd-2845bc96ef14"/>
+				<reportElement x="685" y="0" width="100" height="20" uuid="9286adfa-62b4-497c-b182-2f92d6eb1d3d"/>
 				<textFieldExpression><![CDATA[$F{pengaduan_status}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -219,7 +233,7 @@ FROM
 			</staticText>
 			<staticText>
 				<reportElement x="634" y="120" width="144" height="20" uuid="8f7ba76a-bdb9-4c68-b686-c19a241904c8"/>
-				<text><![CDATA[Kepala Teknisi]]></text>
+				<text><![CDATA[Kepala Area]]></text>
 			</staticText>
 		</band>
 	</summary>
