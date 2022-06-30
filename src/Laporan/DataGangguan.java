@@ -50,7 +50,7 @@ private Connection conn = new Koneksi().connect();
 "     kpl_area.`telepon` \n" +
 "FROM\n" +
 "     `layanan` layanan INNER JOIN `pengaduan` pengaduan ON layanan.`kd_layanan` = pengaduan.`kd_layanan`\n" +
-"     INNER JOIN `kpl_area` kpl_area ON pengaduan.`kd_kplarea` = kpl_area.`kd_kplarea`;";
+"     INNER JOIN `kpl_area` kpl_area ON pengaduan.`kd_kplarea` = kpl_area.`kd_kplarea` where status = '"+"Menunggu"+"';";
                     Statement stat = conn.createStatement();
                 ResultSet hasil = stat.executeQuery(sql);
                 while (hasil.next()){

@@ -261,12 +261,12 @@ tableDialogSupplier.setModel(table);
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/typography.png"))); // NOI18N
-        jLabel4.setText("Username");
+        jLabel4.setText("Nama Pengguna");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/secure.png"))); // NOI18N
-        jLabel5.setText("Password");
+        jLabel5.setText("Kata Sandi");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
@@ -388,15 +388,12 @@ tableDialogSupplier.setModel(table);
                             .addComponent(txtRuang, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelKode)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGroup(jPanel4Layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addGap(22, 22, 22)))
-                            .addComponent(jLabel7))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7)
+                            .addComponent(labelKode)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(22, 22, 22)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -425,7 +422,7 @@ tableDialogSupplier.setModel(table);
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

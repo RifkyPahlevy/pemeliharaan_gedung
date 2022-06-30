@@ -32,6 +32,8 @@ public class LamanUtama extends javax.swing.JFrame {
         namaLabel = new javax.swing.JLabel();
         kodeLabel = new javax.swing.JLabel();
         statusLabel = new javax.swing.JLabel();
+        namaLabel1 = new javax.swing.JLabel();
+        kodeLabel1 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -81,6 +83,12 @@ public class LamanUtama extends javax.swing.JFrame {
 
         statusLabel.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
 
+        namaLabel1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        namaLabel1.setText("RIZKY");
+
+        kodeLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        kodeLabel1.setText("AD0001");
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -95,15 +103,26 @@ public class LamanUtama extends javax.swing.JFrame {
                 .addGap(133, 133, 133))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(namaLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kodeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(teknisi2)
                 .addGap(279, 279, 279))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(teknisi2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(namaLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(kodeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(teknisi2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(kodeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(namaLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -352,9 +371,11 @@ public class LamanUtama extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JButton keluar;
     public static javax.swing.JLabel kodeLabel;
+    public static javax.swing.JLabel kodeLabel1;
     public static final javax.swing.JButton laporan = new javax.swing.JButton();
     public static final javax.swing.JButton layanan = new javax.swing.JButton();
     public static javax.swing.JLabel namaLabel;
+    public static javax.swing.JLabel namaLabel1;
     public static javax.swing.JLabel statusLabel;
     public static final javax.swing.JButton teknisi2 = new javax.swing.JButton();
     public static final javax.swing.JButton terimaBrg = new javax.swing.JButton();

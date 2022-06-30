@@ -252,7 +252,7 @@ public class Login extends javax.swing.JFrame {
                     utama.kodeLabel.setText(hasil.getString(1));
               utama.namaLabel.setText(hasil.getString(2));
 
-                       utama.statusLabel.setText(hasil.getString(5));
+                       
                        utama.setVisible(true);
                        this.dispose();
                 }

@@ -165,7 +165,7 @@ tblBrg.setModel(table);
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/foto/key.png"))); // NOI18N
-        jLabel1.setText("Kode");
+        jLabel1.setText("Kode Barang");
 
         txtKd.setBackground(new java.awt.Color(224, 255, 255));
         txtKd.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

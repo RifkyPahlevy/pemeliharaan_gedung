@@ -257,7 +257,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/foto/key.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Kode"/>
+            <Property name="text" type="java.lang.String" value="Kode Barang"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtKd">
