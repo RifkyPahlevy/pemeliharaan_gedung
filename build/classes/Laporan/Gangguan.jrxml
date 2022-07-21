@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5e3bff6c-7bff-4d88-a482-8241166b1657">
-	<property name="ireport.zoom" value="1.6105100000000154"/>
-	<property name="ireport.x" value="528"/>
-	<property name="ireport.y" value="232"/>
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[SELECT
      pengaduan.`kd_lapor` AS pengaduan_kd_lapor,
@@ -225,14 +225,14 @@ FROM
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement x="678" y="17" width="100" height="20" uuid="92de2c85-0ad2-464e-bdf0-e6fbbaf1495b"/>
-				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE d MMMMM yyyy",new java.util.Locale("id")).format(new Date())]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="634" y="37" width="144" height="20" uuid="0f4a2594-ff59-4543-86b3-963abff99175"/>
+				<reportElement x="658" y="37" width="144" height="20" uuid="0f4a2594-ff59-4543-86b3-963abff99175"/>
 				<text><![CDATA[Mengetahui, ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="634" y="120" width="144" height="20" uuid="8f7ba76a-bdb9-4c68-b686-c19a241904c8"/>
+				<reportElement x="658" y="120" width="144" height="20" uuid="8f7ba76a-bdb9-4c68-b686-c19a241904c8"/>
 				<text><![CDATA[Kepala Area]]></text>
 			</staticText>
 		</band>

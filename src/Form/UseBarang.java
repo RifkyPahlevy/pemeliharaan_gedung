@@ -23,7 +23,7 @@ public class UseBarang extends javax.swing.JFrame {
     }
 
      protected void datatable(){
-        Object[] col ={"Kode Barang","Nama Barang","Jenis Barang","Stok","Satuan","Keterangan"};
+        Object[] col ={"Kode Barang","Nama Barang","Jenis Barang","Stok","Satuan"};
             table = new DefaultTableModel(null, col);
         String cariitem = txtCari.getText();
                 try {
@@ -36,11 +36,10 @@ public class UseBarang extends javax.swing.JFrame {
             hasil.getString(2),
             hasil.getString(3),
             hasil.getString(4),
-            hasil.getString(5),
-            hasil.getString(6)
+            hasil.getString(5)
             
            
-            
+                     
             
     }
         );
@@ -221,7 +220,7 @@ tblBrg.setModel(table);
         input.brg = tblBrg.getValueAt(tabelBarang, 1).toString();
          input.jml = tblBrg.getValueAt(tabelBarang, 3).toString();
          input.satu = tblBrg.getValueAt(tabelBarang, 4).toString();
-         input.ket = tblBrg.getValueAt(tabelBarang, 5).toString();
+        // input.ket = tblBrg.getValueAt(tabelBarang, ).toString();
           
          input.itemTerpilihBrg();
            this.dispose();

@@ -84,9 +84,11 @@ public class LamanUtama extends javax.swing.JFrame {
         statusLabel.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
 
         namaLabel1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        namaLabel1.setForeground(new java.awt.Color(255, 255, 255));
         namaLabel1.setText("RIZKY");
 
         kodeLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        kodeLabel1.setForeground(new java.awt.Color(255, 255, 255));
         kodeLabel1.setText("AD0001");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);

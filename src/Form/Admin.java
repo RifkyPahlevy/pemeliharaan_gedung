@@ -634,7 +634,7 @@ tableDialogSupplier.setModel(table);
         // TODO add your handling code here:
        
          this.dispose();
-            new Login().setVisible(true);
+           
     }//GEN-LAST:event_btnKembaliActionPerformed
 
     private void cbKetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbKetActionPerformed

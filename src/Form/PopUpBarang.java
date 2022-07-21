@@ -23,7 +23,7 @@ public class PopUpBarang extends javax.swing.JFrame {
     }
 
      protected void datatable(){
-        Object[] col ={"Kode Barang","Nama Barang","Jenis Barang","Stok","Satuan","Keterangan"};
+        Object[] col ={"Kode Barang","Nama Barang","Jenis Barang","Stok","Satuan"};
             table = new DefaultTableModel(null, col);
         String cariitem = txtCari.getText();
                 try {
@@ -36,8 +36,7 @@ public class PopUpBarang extends javax.swing.JFrame {
             hasil.getString(2),
             hasil.getString(3),
             hasil.getString(4),
-            hasil.getString(5),
-            hasil.getString(6)
+            hasil.getString(5)
             
            
             

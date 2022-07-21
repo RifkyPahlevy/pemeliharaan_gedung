@@ -663,7 +663,7 @@ protected void autonumber(){
         // TODO add your handling code here:
        
         this.dispose();
-            new Login().setVisible(true);
+           
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed

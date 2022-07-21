@@ -620,7 +620,7 @@ tableDialogSupplier.setModel(table);
         
        
         this.dispose();
-            new Login().setVisible(true);
+           
         
     }//GEN-LAST:event_btnKembaliActionPerformed
 

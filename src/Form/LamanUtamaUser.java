@@ -100,7 +100,7 @@ public class LamanUtamaUser extends javax.swing.JFrame {
         });
 
         namaLabel.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        namaLabel.setText("RIZKY");
+        namaLabel.setForeground(new java.awt.Color(255, 255, 255));
 
         cbJabatan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kepala Area", "Kepala Teknisi", "Teknisi" }));
         cbJabatan.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +110,7 @@ public class LamanUtamaUser extends javax.swing.JFrame {
         });
 
         kodeLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        kodeLabel.setText("KP0001");
+        kodeLabel.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
